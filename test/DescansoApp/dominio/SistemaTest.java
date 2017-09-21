@@ -1,4 +1,4 @@
-package descansoApp.dominio;
+package DescansoApp.dominio;
 
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Ciudad;
