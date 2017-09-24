@@ -23,11 +23,11 @@ public class Ciudad implements Serializable {
     }
 
     public String getDescripcion() {
-        return "";
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = "";
+        this.descripcion = descripcion;
     }
 
     public String getInfoGral() {
@@ -35,7 +35,7 @@ public class Ciudad implements Serializable {
     }
 
     public void setInfoGral(String infoGral) {
-        this.infoGral = "";
+        this.infoGral = infoGral;
     }
    
     public ArrayList<ComercioActividad> getActividades() {
@@ -72,7 +72,7 @@ public class Ciudad implements Serializable {
                estGastronomicos.add(cA);
                 break;
             case actividad:
-                alojamientos.add(cA);
+                actividades.add(cA);
                 break;
         }
     }
@@ -88,7 +88,7 @@ public class Ciudad implements Serializable {
     
     public Ciudad(String unNombre, String unaInfo) {
         nombre = unNombre;
-        infoGral = "";
+        infoGral = unaInfo;
         imagenes = new ArrayList<>();
         actividades = new ArrayList<>();
         estGastronomicos = new ArrayList<>();
