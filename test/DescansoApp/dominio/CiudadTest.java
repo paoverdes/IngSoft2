@@ -18,7 +18,7 @@ public class CiudadTest {
         
         String expResult = "Fray Bentos";
         String result = instance.getNombre();
-        assertTrue(true);
+        assertEquals(expResult, result);       
     }
     
     @Test
@@ -30,7 +30,7 @@ public class CiudadTest {
         
         String expResult = "Fray Bentos";
         String result = instance.getNombre();
-        assertTrue(true);
+        assertEquals(expResult, result);             
     }
     @Test
     public void testGetDescripcion() {
@@ -41,7 +41,7 @@ public class CiudadTest {
         
         String expResult = "Des";
         String result = instance.getDescripcion();
-        assertTrue(true);
+        assertEquals(expResult, result);
     }
      
     @Test
@@ -53,19 +53,17 @@ public class CiudadTest {
         
         String expResult = "Des";
         String result = instance.getDescripcion();
-        assertTrue(true);
+        assertEquals(expResult, result);
     }
     
     @Test
     public void testGetInfoGral() {
         System.out.println("Get Info Gral");
         String infoGral = "Informacion";
-        Ciudad instance = new Ciudad("",infoGral);
-       
-        
+        Ciudad instance = new Ciudad("",infoGral);               
         String expResult = "Informacion";
         String result = instance.getInfoGral();
-        assertTrue(true);
+        assertEquals(expResult, result);
     }
     
     @Test
@@ -78,7 +76,7 @@ public class CiudadTest {
         
         String expResult = "Informacion";
         String result = instance.getInfoGral();
-        assertTrue(true);
+        assertEquals(expResult, result);
     }
 
     @Test
@@ -87,10 +85,9 @@ public class CiudadTest {
         ComercioActividad cA = new ComercioActividad();
         cA.setNombre("alojamiento");
         Ciudad instance = new Ciudad();
-        
-        boolean expResult = false;
+                
         boolean result = instance.perteneceComercioActividad(TipoCA.alojamiento, cA);
-        assertTrue(true);
+        assertFalse(result);
     }
     
     @Test
@@ -100,24 +97,21 @@ public class CiudadTest {
         cA.setNombre("alojamiento");
         Ciudad instance = new Ciudad();
         instance.agregarComercioActividad(TipoCA.alojamiento, cA);
-        
-        boolean expResult = true;
+                
         boolean result = instance.perteneceComercioActividad(TipoCA.alojamiento, cA);
-        assertTrue(true);
+        assertTrue(result);
     }
     
     @Test
     public void testAgregarComercioActividad() {
         System.out.println("Agregar Comercio Actividad(se agrega correctamente)");
-        ComercioActividad cA = new ComercioActividad();
-        
-        cA.setNombre("actividad");
+        ComercioActividad cA = new ComercioActividad();      
+        cA.setTipo(TipoCA.actividad);
+        cA.setNombre("actividad");        
         Ciudad instance = new Ciudad();
-        instance.agregarComercioActividad(TipoCA.actividad, cA);
-        
-        ComercioActividad expResult= new ComercioActividad("actividad", null, TipoCA.actividad, null, null, null, null, null, null);
+        instance.agregarComercioActividad(TipoCA.actividad, cA);                
         ComercioActividad result= instance.getActividades().get(0);
-        assertTrue(true);
+        assertEquals(result, cA);        
     }
     
        
@@ -126,13 +120,14 @@ public class CiudadTest {
         System.out.println("Get Actividades");
         ComercioActividad cA = new ComercioActividad();
         cA.setNombre("actividad");
+        cA.setTipo(TipoCA.actividad);
         Ciudad instance = new Ciudad();
         instance.agregarComercioActividad(TipoCA.actividad, cA);
         
         ArrayList<ComercioActividad> expResult = new ArrayList();
         expResult.add(cA);
         ArrayList<ComercioActividad> result = instance.getActividades();
-        assertTrue(true);
+        assertEquals(result, expResult);        
     }
 
     @Test
@@ -146,7 +141,7 @@ public class CiudadTest {
         ArrayList<ComercioActividad> expResult = new ArrayList();
         expResult.add(cA);
         ArrayList<ComercioActividad> result = instance.getEstGastronomicos();
-        assertTrue(true);
+        assertEquals(result, expResult); 
     }
 
     @Test
@@ -160,7 +155,7 @@ public class CiudadTest {
         ArrayList<ComercioActividad> expResult = new ArrayList();
         expResult.add(cA);
         ArrayList<ComercioActividad> result = instance.getAlojamientos();
-        assertTrue(true);
+        assertEquals(result, expResult); 
     }
     
     @Test
@@ -169,11 +164,8 @@ public class CiudadTest {
         Ciudad c1= new Ciudad();
         c1.setNombre("Ciudad1");
         Ciudad c2 = new Ciudad();
-        c1.setNombre("Ciudad2");
-        
-        boolean expResult = false;
-        boolean result = c1.equals(c2);
-        assertTrue(true);
+        c2.setNombre("Ciudad2");
+        assertNotEquals(c1, c2);
     }
     @Test
     public void testEquals2() {
@@ -182,10 +174,7 @@ public class CiudadTest {
         c1.setNombre("Ciudad1");
         Ciudad c2 = new Ciudad();
         c2.setNombre("Ciudad1");
-        
-        boolean expResult = true;
-        boolean result = c1.equals(c2);
-        assertTrue(true);
+        assertEquals(c1, c2);
     }
     @Test
     public void testAgregarImagen(){
@@ -197,10 +186,9 @@ public class CiudadTest {
        
         String expResult= "basedatos/fraybentos1.jpg";
         String aux = instance.getImagenes().get(0).getDescription();
-        String [] result= aux.toLowerCase().split("/turismoapp/");
+        String [] result= aux.toLowerCase().split("/descansoapp/");
         assertEquals(expResult, result[2]);
         
-    
     }
     
     @Test
@@ -213,7 +201,7 @@ public class CiudadTest {
        
         String expResult= "basedatos/fraybentos2.jpg";
         String aux = instance.getImagenes().get(0).getDescription();
-        String [] result= aux.toLowerCase().split("/turismoapp/");
+        String [] result= aux.toLowerCase().split("/descansoapp/");
         assertEquals(expResult, result[2]);
         
     }
