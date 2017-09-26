@@ -25,8 +25,6 @@ public class pnlMisViajes extends javax.swing.JPanel {
         cargarViajes();
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         scroll = new javax.swing.JScrollPane();
@@ -58,21 +56,21 @@ public class pnlMisViajes extends javax.swing.JPanel {
         add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         lblNoHay.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lblNoHay.setForeground(new java.awt.Color(255, 255, 255));
-        lblNoHay.setText("No hay viajes guardados!");
+        lblNoHay.setForeground(new java.awt.Color(255, 255, 255));              
         add(lblNoHay, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 90, -1, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/MisViajes.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 280));
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void cargarViajes() {
         pnlResultados.removeAll();
-        pnlResultados.repaint();
-
+        pnlResultados.repaint();                 
         ArrayList<Viaje> resultados = modelo.getListaViajes();
-
         int cantResultados = resultados.size();
+        if(cantResultados == 0){
+            lblNoHay.setText("No hay viajes guardados!");
+        }
         if (cantResultados > 0) {
             lblNoHay.setVisible(true);
 
