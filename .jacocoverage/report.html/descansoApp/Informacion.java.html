@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Informacion.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp</a> &gt; <span class="el_source">Informacion.java</span></div><h1>Informacion.java</h1><pre class="source lang-java linenums">package descansoApp;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import descansoApp.dominio.Ciudad;
+import descansoApp.dominio.ComercioActividad;
+import descansoApp.herramientas.TipoCA;
+
+<span class="nc" id="L9">public class Informacion {</span>
+
+    public static ArrayList&lt;Ciudad&gt; ciudades() {
+<span class="nc" id="L12">        ArrayList&lt;String&gt; cdades = BaseDatos.ciudades();</span>
+<span class="nc" id="L13">        int parte = -1;</span>
+        String nombre;
+        String des;
+        String info;
+<span class="nc" id="L17">        ArrayList&lt;String&gt; listaImg = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L19">        ArrayList&lt;Ciudad&gt; ret = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L21">        Iterator&lt;String&gt; it = cdades.iterator();</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        while (it.hasNext()) {</span>
+<span class="nc" id="L23">            nombre = &quot;&quot;;</span>
+<span class="nc" id="L24">            des = &quot;&quot;;</span>
+<span class="nc" id="L25">            info = &quot;&quot;;</span>
+
+<span class="nc" id="L27">            String ciudad = it.next();</span>
+<span class="nc" id="L28">            String[] txtCiudad = ciudad.split(&quot;\n&quot;);</span>
+
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            for (int i = 0; i &lt; txtCiudad.length; i++) {</span>
+<span class="nc" id="L31">                String linea = txtCiudad[i];</span>
+
+<span class="nc bnc" id="L33" title="All 2 branches missed.">                if (averiguarParte(linea) == -2) {</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">                    if (!linea.equals(&quot;&quot;)) {</span>
+<span class="nc bnc" id="L35" title="All 5 branches missed.">                        switch (parte) {</span>
+                            case 0:
+<span class="nc" id="L37">                                nombre = linea;</span>
+<span class="nc" id="L38">                                break;</span>
+                            case 1:
+<span class="nc bnc" id="L40" title="All 2 branches missed.">                                if (linea.equals(&quot;-/&quot;)) des += &quot;\n&quot;;</span>
+<span class="nc" id="L41">                                else  des += linea;</span>
+<span class="nc" id="L42">                                break;</span>
+                            case 2:
+<span class="nc" id="L44">                                info += linea;</span>
+<span class="nc" id="L45">                                break;</span>
+                            case 3:
+<span class="nc" id="L47">                                listaImg.add(linea);</span>
+<span class="nc" id="L48">                                break;</span>
+                        }
+                    }
+                } else {
+<span class="nc" id="L52">                    parte = averiguarParte(linea);</span>
+                }
+            }
+
+<span class="nc" id="L56">            Ciudad c = new Ciudad();</span>
+<span class="nc" id="L57">            c.setNombre(nombre);</span>
+<span class="nc" id="L58">            c.setDescripcion(des);</span>
+<span class="nc" id="L59">            c.setInfoGral(info);</span>
+
+<span class="nc bnc" id="L61" title="All 2 branches missed.">            for (int i = 0; i &lt; listaImg.size(); i++) {</span>
+<span class="nc" id="L62">                c.agregarImagen(listaImg.get(i));</span>
+            }
+
+           
+<span class="nc" id="L66">            agregarCAs(c);</span>
+<span class="nc" id="L67">            ret.add(c);</span>
+<span class="nc" id="L68">        }</span>
+
+<span class="nc" id="L70">        return ret;</span>
+    }
+
+    private static int averiguarParte(String linea) {
+<span class="nc" id="L74">        int parte = -2;</span>
+
+<span class="nc bnc" id="L76" title="All 18 branches missed.">        switch (linea) {</span>
+            case &quot;#nombre&quot;:
+<span class="nc" id="L78">                parte = 0;</span>
+<span class="nc" id="L79">                break;</span>
+            case &quot;#des&quot;:
+<span class="nc" id="L81">                parte = 1;</span>
+<span class="nc" id="L82">                break;</span>
+            case &quot;#info&quot;:
+<span class="nc" id="L84">                parte = 2;</span>
+<span class="nc" id="L85">                break;</span>
+            case &quot;#rutas&quot;:
+<span class="nc" id="L87">                parte = 0;</span>
+                break;
+        }
+
+<span class="nc" id="L91">        return parte;</span>
+    }
+
+    private static void agregarCAs(Ciudad c) {
+<span class="nc" id="L95">        int parte = -1;</span>
+<span class="nc" id="L96">        String[] comerciosA = BaseDatos.comerciosActividades().split(&quot;#end&quot;);</span>
+
+        //Itero entre los comercios y actividades
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        for (int i = 0; i &lt; comerciosA.length; i++) {</span>
+<span class="nc" id="L100">            String[] datos = {&quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;};</span>
+<span class="nc" id="L101">            ArrayList&lt;String&gt; listaImg = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L103">            String[] txtCA = comerciosA[i].split(&quot;\n&quot;);</span>
+            //Itero dentro del texto del comercio-actividad
+<span class="nc bnc" id="L105" title="All 2 branches missed.">            for (int j = 0; j &lt; txtCA.length; j++) {</span>
+<span class="nc" id="L106">                String linea = txtCA[j];</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">                if (averiguarParte2(linea) == -2) {</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">                    if (linea.length() &gt; 1) {</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">                        if (parte == 9) {</span>
+<span class="nc" id="L111">                            listaImg.add(linea);</span>
+                        } else {
+<span class="nc" id="L113">                            datos[parte] += linea;</span>
+                        }
+                    }
+                } else {
+<span class="nc" id="L117">                    parte = averiguarParte2(linea);</span>
+                }
+            }
+
+<span class="nc" id="L121">            ComercioActividad cA = new ComercioActividad();</span>
+<span class="nc" id="L122">            cA.setNombre(datos[0]);</span>
+<span class="nc" id="L123">            cA.setDetalles(datos[1]);</span>
+<span class="nc bnc" id="L124" title="All 14 branches missed.">            switch (datos[2]) {</span>
+                case &quot;alojamiento&quot;:
+<span class="nc" id="L126">                    cA.setTipo(TipoCA.alojamiento);</span>
+<span class="nc" id="L127">                    break;</span>
+                case &quot;actividad&quot;:
+<span class="nc" id="L129">                    cA.setTipo(TipoCA.actividad);</span>
+<span class="nc" id="L130">                    break;</span>
+                case &quot;estGastronomico&quot;:
+<span class="nc" id="L132">                    cA.setTipo(TipoCA.estGastronomico);</span>
+                    break;
+            }
+
+<span class="nc" id="L136">            cA.setCategoria(datos[3]);</span>
+<span class="nc" id="L137">            cA.setHorario(datos[4]);</span>
+<span class="nc" id="L138">            cA.setUbicacion(datos[5]);</span>
+<span class="nc" id="L139">            cA.setTelefono(datos[6]);</span>
+<span class="nc" id="L140">            cA.setWeb(datos[7]);</span>
+<span class="nc" id="L141">            cA.setPrecio(datos[8]);</span>
+
+<span class="nc" id="L143">            Iterator&lt;String&gt; it = listaImg.iterator();</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">            while (it.hasNext()) {</span>
+<span class="nc" id="L145">                cA.agregarImagen(it.next());</span>
+            }
+
+<span class="nc" id="L148">            c.agregarComercioActividad(cA.getTipo(), cA);</span>
+        }
+<span class="nc" id="L150">    }</span>
+
+    private static int averiguarParte2(String linea) {
+<span class="nc" id="L153">        int parte = -2;</span>
+
+<span class="nc bnc" id="L155" title="All 42 branches missed.">        switch (linea) {</span>
+            case &quot;#nombre&quot;:
+<span class="nc" id="L157">                parte = 0;</span>
+<span class="nc" id="L158">                break;</span>
+            case &quot;#detalles&quot;:
+<span class="nc" id="L160">                parte = 1;</span>
+<span class="nc" id="L161">                break;</span>
+            case &quot;#tipo&quot;:
+<span class="nc" id="L163">                parte = 2;</span>
+<span class="nc" id="L164">                break;</span>
+            case &quot;#categoria&quot;:
+<span class="nc" id="L166">                parte = 3;</span>
+<span class="nc" id="L167">                break;</span>
+            case &quot;#horario&quot;:
+<span class="nc" id="L169">                parte = 4;</span>
+<span class="nc" id="L170">                break;</span>
+            case &quot;#ubicacion&quot;:
+<span class="nc" id="L172">                parte = 5;</span>
+<span class="nc" id="L173">                break;</span>
+            case &quot;#telefono &quot;:
+<span class="nc" id="L175">                parte = 6;</span>
+<span class="nc" id="L176">                break;</span>
+            case &quot;#web&quot;:
+<span class="nc" id="L178">                parte = 7;</span>
+<span class="nc" id="L179">                break;</span>
+            case &quot;#precio&quot;:
+<span class="nc" id="L181">                parte = 8;</span>
+<span class="nc" id="L182">                break;</span>
+            case &quot;#rutas&quot;:
+<span class="nc" id="L184">                parte = 0;</span>
+                break;
+        }
+
+<span class="nc" id="L188">        return parte;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

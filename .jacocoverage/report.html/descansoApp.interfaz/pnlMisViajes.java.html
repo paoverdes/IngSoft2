@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>pnlMisViajes.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.interfaz</a> &gt; <span class="el_source">pnlMisViajes.java</span></div><h1>pnlMisViajes.java</h1><pre class="source lang-java linenums">package descansoApp.interfaz;
+
+import java.util.ArrayList;
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import descansoApp.dominio.Sistema;
+import descansoApp.dominio.Viaje;
+
+public class pnlMisViajes extends javax.swing.JPanel {
+
+    private Sistema modelo;
+    private JFrame miVentana;
+
+<span class="nc" id="L14">    public pnlMisViajes(Sistema unModelo, JFrame unContenedor) {</span>
+<span class="nc" id="L15">        initComponents();</span>
+<span class="nc" id="L16">        pnlResultados.setOpaque(false);</span>
+<span class="nc" id="L17">        pnlResultados.setLayout(new BoxLayout(pnlResultados, BoxLayout.PAGE_AXIS));</span>
+<span class="nc" id="L18">        scroll.setOpaque(false);</span>
+<span class="nc" id="L19">        scroll.getViewport().setOpaque(false);</span>
+<span class="nc" id="L20">        scroll.setBorder(null);</span>
+
+<span class="nc" id="L22">        modelo = unModelo;</span>
+<span class="nc" id="L23">        miVentana = unContenedor;</span>
+
+<span class="nc" id="L25">        cargarViajes();</span>
+<span class="nc" id="L26">    }</span>
+
+    private void initComponents() {
+
+<span class="nc" id="L30">        scroll = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L31">        pnlResultados = new javax.swing.JPanel();</span>
+<span class="nc" id="L32">        lblNoHay = new javax.swing.JLabel();</span>
+<span class="nc" id="L33">        lblFondo = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L35">        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L37">        scroll.setAutoscrolls(true);</span>
+<span class="nc" id="L38">        scroll.setHorizontalScrollBar(null);</span>
+<span class="nc" id="L39">        scroll.setMaximumSize(new java.awt.Dimension(440, 195));</span>
+<span class="nc" id="L40">        scroll.setMinimumSize(new java.awt.Dimension(440, 195));</span>
+<span class="nc" id="L41">        scroll.setPreferredSize(new java.awt.Dimension(440, 195));</span>
+
+<span class="nc" id="L43">        javax.swing.GroupLayout pnlResultadosLayout = new javax.swing.GroupLayout(pnlResultados);</span>
+<span class="nc" id="L44">        pnlResultados.setLayout(pnlResultadosLayout);</span>
+<span class="nc" id="L45">        pnlResultadosLayout.setHorizontalGroup(</span>
+<span class="nc" id="L46">            pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L47">            .addGap(0, 448, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L49">        pnlResultadosLayout.setVerticalGroup(</span>
+<span class="nc" id="L50">            pnlResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L51">            .addGap(0, 198, Short.MAX_VALUE)</span>
+        );
+
+<span class="nc" id="L54">        scroll.setViewportView(pnlResultados);</span>
+
+<span class="nc" id="L56">        add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));</span>
+
+<span class="nc" id="L58">        lblNoHay.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L59">        lblNoHay.setForeground(new java.awt.Color(255, 255, 255));              </span>
+<span class="nc" id="L60">        add(lblNoHay, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 90, -1, -1));</span>
+
+<span class="nc" id="L62">        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/MisViajes.png&quot;))); // NOI18N</span>
+<span class="nc" id="L63">        add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 280));</span>
+<span class="nc" id="L64">    }</span>
+
+    private void cargarViajes() {
+<span class="nc" id="L67">        pnlResultados.removeAll();</span>
+<span class="nc" id="L68">        pnlResultados.repaint();                 </span>
+<span class="nc" id="L69">        ArrayList&lt;Viaje&gt; resultados = modelo.getListaViajes();</span>
+<span class="nc" id="L70">        int cantResultados = resultados.size();</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if(cantResultados == 0){</span>
+<span class="nc" id="L72">            lblNoHay.setText(&quot;No hay viajes guardados!&quot;);</span>
+        }
+<span class="nc bnc" id="L74" title="All 2 branches missed.">        if (cantResultados &gt; 0) {</span>
+<span class="nc" id="L75">            lblNoHay.setVisible(true);</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">            for (int i = 0; i &lt; cantResultados; i++) {</span>
+<span class="nc" id="L78">                pResultadoMisViajes p = new pResultadoMisViajes(modelo, resultados.get(i), miVentana, this);</span>
+
+<span class="nc" id="L80">                pnlResultados.add(p);</span>
+            }
+
+<span class="nc" id="L83">            pnlResultados.setVisible(true);</span>
+<span class="nc" id="L84">            pnlResultados.revalidate();</span>
+<span class="nc" id="L85">            pnlResultados.repaint();</span>
+        } else {
+<span class="nc" id="L87">            lblNoHay.setVisible(true);</span>
+        }
+<span class="nc" id="L89">    }</span>
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblNoHay;
+    private javax.swing.JPanel pnlResultados;
+    private javax.swing.JScrollPane scroll;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

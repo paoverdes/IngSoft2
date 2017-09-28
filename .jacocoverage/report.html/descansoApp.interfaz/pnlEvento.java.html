@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>pnlEvento.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.interfaz</a> &gt; <span class="el_source">pnlEvento.java</span></div><h1>pnlEvento.java</h1><pre class="source lang-java linenums">package descansoApp.interfaz;
+
+import java.util.Calendar;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import descansoApp.dominio.Evento;
+import descansoApp.dominio.Sistema;
+import descansoApp.dominio.Viaje;
+import descansoApp.herramientas.EsNumero;
+
+public class pnlEvento extends javax.swing.JPanel {
+
+    private Viaje viaje;
+    private Evento modEvento;
+    private descansoApp.dominio.Ciudad ciudad;
+    private JFrame miVentana;
+    private Sistema modelo;
+
+<span class="nc" id="L19">    public pnlEvento(Sistema unModelo, Viaje unViaje, descansoApp.dominio.Ciudad unaCiudad, Evento unEvento, JFrame unContenedor) {</span>
+<span class="nc" id="L20">        initComponents();</span>
+<span class="nc" id="L21">        modelo = unModelo;</span>
+<span class="nc" id="L22">        viaje = unViaje;</span>
+<span class="nc" id="L23">        modEvento = unEvento;</span>
+<span class="nc" id="L24">        ciudad = unaCiudad;</span>
+<span class="nc" id="L25">        miVentana = unContenedor;</span>
+
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (modEvento == null) {</span>
+<span class="nc" id="L28">            lblEliminar1.setVisible(false);</span>
+<span class="nc" id="L29">            lblVolver.setVisible(false);</span>
+        } else {
+<span class="nc" id="L31">            lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/ModificarEvento.png&quot;)));</span>
+<span class="nc" id="L32">            txtNombre.setText(modEvento.getNombre());</span>
+<span class="nc" id="L33">            txtDescripcion.setText(modEvento.getDescripcion());</span>
+<span class="nc" id="L34">            txtHoraIHoras.setText(&quot;&quot; + modEvento.getFechaHoraI().get(Calendar.HOUR));</span>
+<span class="nc" id="L35">            txtHoraIMinutos.setText(&quot;&quot; + modEvento.getFechaHoraI().get(Calendar.MINUTE));</span>
+<span class="nc" id="L36">            txtHoraFHoras.setText(&quot;&quot; + modEvento.getFechaHoraF().get(Calendar.HOUR));</span>
+<span class="nc" id="L37">            txtHoraFMinutos.setText(&quot;&quot; + modEvento.getFechaHoraF().get(Calendar.MINUTE));</span>
+<span class="nc" id="L38">            txtUbicacion.setText(modEvento.getUbicacion());</span>
+<span class="nc" id="L39">            dChosserFechaI.setCalendar(modEvento.getFechaHoraI());</span>
+<span class="nc" id="L40">            dChosserFechaF.setCalendar(modEvento.getFechaHoraF());</span>
+        }
+<span class="nc" id="L42">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L48">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L49">        txtDescripcion = new javax.swing.JTextArea();</span>
+<span class="nc" id="L50">        txtNombre = new javax.swing.JTextField();</span>
+<span class="nc" id="L51">        dChosserFechaI = new com.toedter.calendar.JDateChooser();</span>
+<span class="nc" id="L52">        dChosserFechaF = new com.toedter.calendar.JDateChooser();</span>
+<span class="nc" id="L53">        txtHoraIMinutos = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L54">        txtUbicacion = new javax.swing.JTextField();</span>
+<span class="nc" id="L55">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L56">        jLabel5 = new javax.swing.JLabel();</span>
+<span class="nc" id="L57">        txtHoraFHoras = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L58">        txtHoraIHoras = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L59">        txtHoraFMinutos = new javax.swing.JFormattedTextField();</span>
+<span class="nc" id="L60">        lblGuardar = new javax.swing.JLabel();</span>
+<span class="nc" id="L61">        lblEliminar1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L62">        lblVolver = new javax.swing.JLabel();</span>
+<span class="nc" id="L63">        lblFondo = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L65">        setMaximumSize(new java.awt.Dimension(490, 285));</span>
+<span class="nc" id="L66">        setMinimumSize(new java.awt.Dimension(490, 285));</span>
+<span class="nc" id="L67">        setPreferredSize(new java.awt.Dimension(490, 285));</span>
+<span class="nc" id="L68">        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L70">        jScrollPane1.setBorder(null);</span>
+
+<span class="nc" id="L72">        txtDescripcion.setColumns(20);</span>
+<span class="nc" id="L73">        txtDescripcion.setLineWrap(true);</span>
+<span class="nc" id="L74">        txtDescripcion.setRows(5);</span>
+<span class="nc" id="L75">        txtDescripcion.setWrapStyleWord(true);</span>
+<span class="nc" id="L76">        txtDescripcion.setBorder(null);</span>
+<span class="nc" id="L77">        jScrollPane1.setViewportView(txtDescripcion);</span>
+
+<span class="nc" id="L79">        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 200, 150));</span>
+
+<span class="nc" id="L81">        txtNombre.setBorder(null);</span>
+<span class="nc" id="L82">        txtNombre.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L84">                txtNombreActionPerformed(evt);</span>
+<span class="nc" id="L85">            }</span>
+        });
+<span class="nc" id="L87">        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 130, 18));</span>
+<span class="nc" id="L88">        add(dChosserFechaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 130, -1));</span>
+<span class="nc" id="L89">        add(dChosserFechaF, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, -1));</span>
+
+<span class="nc" id="L91">        txtHoraIMinutos.setBorder(null);</span>
+<span class="nc" id="L92">        txtHoraIMinutos.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L94">                txtHoraIMinutosActionPerformed(evt);</span>
+<span class="nc" id="L95">            }</span>
+        });
+<span class="nc" id="L97">        add(txtHoraIMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 19, 18));</span>
+
+<span class="nc" id="L99">        txtUbicacion.setBorder(null);</span>
+<span class="nc" id="L100">        txtUbicacion.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L102">                txtUbicacionActionPerformed(evt);</span>
+<span class="nc" id="L103">            }</span>
+        });
+<span class="nc" id="L105">        add(txtUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 130, 18));</span>
+
+<span class="nc" id="L107">        jLabel1.setText(&quot; :&quot;);</span>
+<span class="nc" id="L108">        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 10, 20));</span>
+
+<span class="nc" id="L110">        jLabel5.setText(&quot; :&quot;);</span>
+<span class="nc" id="L111">        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 10, 20));</span>
+
+<span class="nc" id="L113">        txtHoraFHoras.setBorder(null);</span>
+<span class="nc" id="L114">        txtHoraFHoras.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L116">                txtHoraFHorasActionPerformed(evt);</span>
+<span class="nc" id="L117">            }</span>
+        });
+<span class="nc" id="L119">        add(txtHoraFHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 19, 18));</span>
+
+<span class="nc" id="L121">        txtHoraIHoras.setBorder(null);</span>
+<span class="nc" id="L122">        txtHoraIHoras.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L124">                txtHoraIHorasActionPerformed(evt);</span>
+<span class="nc" id="L125">            }</span>
+        });
+<span class="nc" id="L127">        add(txtHoraIHoras, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 19, 18));</span>
+
+<span class="nc" id="L129">        txtHoraFMinutos.setBorder(null);</span>
+<span class="nc" id="L130">        txtHoraFMinutos.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L132">                txtHoraFMinutosActionPerformed(evt);</span>
+<span class="nc" id="L133">            }</span>
+        });
+<span class="nc" id="L135">        add(txtHoraFMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 19, 18));</span>
+
+<span class="nc" id="L137">        lblGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnGuardar.png&quot;))); // NOI18N</span>
+<span class="nc" id="L138">        lblGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L139">        lblGuardar.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L141">                lblGuardarMouseClicked(evt);</span>
+<span class="nc" id="L142">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L144">                lblGuardarMouseEntered(evt);</span>
+<span class="nc" id="L145">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L147">                lblGuardarMouseExited(evt);</span>
+<span class="nc" id="L148">            }</span>
+        });
+<span class="nc" id="L150">        add(lblGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 250, -1, 30));</span>
+
+<span class="nc" id="L152">        lblEliminar1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/Eliminar.png&quot;))); // NOI18N</span>
+<span class="nc" id="L153">        lblEliminar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L154">        lblEliminar1.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L156">                lblEliminar1MouseClicked(evt);</span>
+<span class="nc" id="L157">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L159">                lblEliminar1MouseEntered(evt);</span>
+<span class="nc" id="L160">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L162">                lblEliminar1MouseExited(evt);</span>
+<span class="nc" id="L163">            }</span>
+        });
+<span class="nc" id="L165">        add(lblEliminar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, -1, 30));</span>
+
+<span class="nc" id="L167">        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnVolver.png&quot;))); // NOI18N</span>
+<span class="nc" id="L168">        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L169">        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L171">                lblVolverMouseClicked(evt);</span>
+<span class="nc" id="L172">            }</span>
+        });
+<span class="nc" id="L174">        add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 28, -1, -1));</span>
+
+<span class="nc" id="L176">        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/AgregarEvento.png&quot;))); // NOI18N</span>
+<span class="nc" id="L177">        add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));</span>
+<span class="nc" id="L178">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+
+<span class="nc" id="L182">    }//GEN-LAST:event_txtNombreActionPerformed</span>
+
+    private void txtHoraIMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraIMinutosActionPerformed
+
+<span class="nc" id="L186">    }//GEN-LAST:event_txtHoraIMinutosActionPerformed</span>
+
+    private void txtUbicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbicacionActionPerformed
+
+<span class="nc" id="L190">    }//GEN-LAST:event_txtUbicacionActionPerformed</span>
+
+    private void txtHoraFHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraFHorasActionPerformed
+
+<span class="nc" id="L194">    }//GEN-LAST:event_txtHoraFHorasActionPerformed</span>
+
+    private void txtHoraIHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraIHorasActionPerformed
+
+<span class="nc" id="L198">    }//GEN-LAST:event_txtHoraIHorasActionPerformed</span>
+
+    private void txtHoraFMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraFMinutosActionPerformed
+
+<span class="nc" id="L202">    }//GEN-LAST:event_txtHoraFMinutosActionPerformed</span>
+
+    private void lblGuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseEntered
+<span class="nc" id="L205">        lblGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnGuardarONN.png&quot;)));</span>
+<span class="nc" id="L206">    }//GEN-LAST:event_lblGuardarMouseEntered</span>
+
+    private void lblGuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseExited
+<span class="nc" id="L209">        lblGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnGuardar.png&quot;)));</span>
+<span class="nc" id="L210">    }//GEN-LAST:event_lblGuardarMouseExited</span>
+
+    private void lblGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGuardarMouseClicked
+<span class="nc bnc" id="L213" title="All 6 branches missed.">        if (txtNombre.getText().length() &gt; 0 &amp;&amp; txtUbicacion.getText().length() &gt; 0 &amp;&amp; txtDescripcion.getText().length() &gt; 0</span>
+<span class="nc bnc" id="L214" title="All 6 branches missed.">                &amp;&amp; txtHoraIHoras.getText().length() &gt; 0 &amp;&amp; txtHoraIMinutos.getText().length() &gt; 0 &amp;&amp; txtHoraFHoras.getText().length() &gt; 0</span>
+<span class="nc bnc" id="L215" title="All 6 branches missed.">                &amp;&amp; txtHoraFMinutos.getText().length() &gt; 0 &amp;&amp; dChosserFechaI != null &amp;&amp; dChosserFechaF != null) {</span>
+
+            Evento evento;
+<span class="nc bnc" id="L218" title="All 2 branches missed.">            if (modEvento == null) {</span>
+<span class="nc" id="L219">                evento = new Evento();</span>
+            } else {
+<span class="nc" id="L221">                evento = modEvento;</span>
+            }
+
+<span class="nc" id="L224">            evento.setNombre(txtNombre.getText());</span>
+<span class="nc" id="L225">            evento.setUbicacion(txtUbicacion.getText());</span>
+<span class="nc" id="L226">            evento.setDescripcion(txtDescripcion.getText());</span>
+<span class="nc" id="L227">            evento.setCiudad(ciudad);</span>
+
+<span class="nc bnc" id="L229" title="All 4 branches missed.">            if (!esNumero(txtHoraIHoras.getText()) || !esNumero(txtHoraIMinutos.getText())</span>
+<span class="nc bnc" id="L230" title="All 4 branches missed.">                    || !esNumero(txtHoraFHoras.getText()) || !esNumero(txtHoraFMinutos.getText())) {</span>
+<span class="nc" id="L231">                JOptionPane.showMessageDialog(this, &quot;Formato incorrecto de la hora ingresada.&quot;, &quot;Error&quot;, JOptionPane.ERROR_MESSAGE);</span>
+
+            } else {
+<span class="nc" id="L234">                int hIHoras = Integer.parseInt(txtHoraIHoras.getText());</span>
+<span class="nc" id="L235">                int hIMinutos = Integer.parseInt(txtHoraIMinutos.getText());</span>
+<span class="nc" id="L236">                int hFHoras = Integer.parseInt(txtHoraFHoras.getText());</span>
+<span class="nc" id="L237">                int hFMinutos = Integer.parseInt(txtHoraFMinutos.getText());</span>
+
+<span class="nc bnc" id="L239" title="All 16 branches missed.">                if ((hIHoras &gt;= 0 &amp;&amp; hIHoras &lt;= 23) &amp;&amp; (hIMinutos &gt;= 0 &amp;&amp; hIMinutos &lt;= 59) &amp;&amp; (hFHoras &gt;= 0 &amp;&amp; hFHoras &lt;= 23) &amp;&amp; (hFMinutos &gt;= 0 &amp;&amp; hFMinutos &lt;= 59)) {</span>
+
+<span class="nc" id="L241">                    Calendar cFechaI = dChosserFechaI.getCalendar();</span>
+<span class="nc" id="L242">                    Calendar cFechaF = dChosserFechaF.getCalendar();</span>
+
+<span class="nc" id="L244">                    cFechaI.set(Calendar.HOUR_OF_DAY, hIHoras);</span>
+<span class="nc" id="L245">                    cFechaI.set(Calendar.MINUTE, hIMinutos);</span>
+<span class="nc" id="L246">                    cFechaF.set(Calendar.HOUR_OF_DAY, hFHoras);</span>
+<span class="nc" id="L247">                    cFechaF.set(Calendar.MINUTE, hFMinutos);</span>
+
+                    try {
+<span class="nc" id="L250">                        evento.setFechaHoraI(cFechaI);</span>
+<span class="nc" id="L251">                        evento.setFechaHoraF(cFechaI, cFechaF);</span>
+
+<span class="nc bnc" id="L253" title="All 2 branches missed.">                        if (modEvento == null) {</span>
+<span class="nc" id="L254">                            viaje.agregarEvento(evento);</span>
+<span class="nc" id="L255">                            miVentana.dispose();</span>
+                        } else {
+<span class="nc" id="L257">                            miVentana.remove(this);</span>
+<span class="nc" id="L258">                            miVentana.add(new pnlItinerario(modelo, viaje, miVentana));</span>
+<span class="nc" id="L259">                            miVentana.pack();</span>
+                        }
+
+<span class="nc" id="L262">                    } catch (Exception e) {</span>
+<span class="nc" id="L263">                        JOptionPane.showMessageDialog(this, e.getMessage(), &quot;Error&quot;, JOptionPane.ERROR_MESSAGE);</span>
+<span class="nc" id="L264">                    }</span>
+<span class="nc" id="L265">                } else {</span>
+<span class="nc" id="L266">                    JOptionPane.showMessageDialog(this, &quot;Formato incorrecto de la hora ingresada&quot;, &quot;Error&quot;, JOptionPane.ERROR_MESSAGE);</span>
+                }
+            }
+<span class="nc" id="L269">        } else {</span>
+<span class="nc" id="L270">            JOptionPane.showMessageDialog(miVentana, viaje, TOOL_TIP_TEXT_KEY, WIDTH);</span>
+        }
+<span class="nc" id="L272">    }//GEN-LAST:event_lblGuardarMouseClicked</span>
+
+    public boolean esNumero(String texto) {
+        boolean correcto;
+        int num;
+
+        try {
+<span class="nc" id="L279">            num = Integer.parseInt(texto);</span>
+<span class="nc" id="L280">            correcto = true;</span>
+<span class="nc" id="L281">        } catch (NumberFormatException e) {</span>
+<span class="nc" id="L282">            correcto = false;</span>
+<span class="nc" id="L283">        }</span>
+
+<span class="nc" id="L285">        return correcto;</span>
+    }
+    
+    private void lblEliminar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseClicked
+<span class="nc" id="L289">        int respuesta = JOptionPane.showConfirmDialog(null, &quot;¿Desea eliminar el evento?&quot;, &quot;Eliminar Evento&quot;, JOptionPane.OK_CANCEL_OPTION);</span>
+<span class="nc bnc" id="L290" title="All 2 branches missed.">        if (respuesta == JOptionPane.OK_OPTION) {</span>
+<span class="nc" id="L291">            viaje.eliminarEvento(modEvento);</span>
+            
+<span class="nc" id="L293">            miVentana.remove(this);</span>
+<span class="nc" id="L294">            miVentana.add(new pnlItinerario(modelo, viaje, miVentana));</span>
+<span class="nc" id="L295">            miVentana.pack();</span>
+        }
+<span class="nc" id="L297">    }//GEN-LAST:event_lblEliminar1MouseClicked</span>
+
+    private void lblEliminar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseEntered
+        
+<span class="nc" id="L301">    }//GEN-LAST:event_lblEliminar1MouseEntered</span>
+
+    private void lblEliminar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminar1MouseExited
+
+<span class="nc" id="L305">    }//GEN-LAST:event_lblEliminar1MouseExited</span>
+
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+<span class="nc" id="L308">        miVentana.remove(this);</span>
+<span class="nc" id="L309">        miVentana.add(new pnlItinerario(modelo, viaje, miVentana));</span>
+<span class="nc" id="L310">        miVentana.pack();</span>
+<span class="nc" id="L311">    }//GEN-LAST:event_lblVolverMouseClicked</span>
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser dChosserFechaF;
+    private com.toedter.calendar.JDateChooser dChosserFechaI;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblEliminar1;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblGuardar;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JFormattedTextField txtHoraFHoras;
+    private javax.swing.JFormattedTextField txtHoraFMinutos;
+    private javax.swing.JFormattedTextField txtHoraIHoras;
+    private javax.swing.JFormattedTextField txtHoraIMinutos;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtUbicacion;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

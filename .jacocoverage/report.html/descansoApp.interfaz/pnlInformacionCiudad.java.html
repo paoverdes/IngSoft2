@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>pnlInformacionCiudad.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.interfaz</a> &gt; <span class="el_source">pnlInformacionCiudad.java</span></div><h1>pnlInformacionCiudad.java</h1><pre class="source lang-java linenums">package descansoApp.interfaz;
+
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import descansoApp.dominio.Sistema;
+import static descansoApp.herramientas.TipoCA.*;
+
+public class pnlInformacionCiudad extends javax.swing.JPanel {
+
+    private Sistema modelo;
+    private descansoApp.dominio.Ciudad ciudad;
+    private JFrame padre;
+<span class="nc" id="L14">    int contador = 0;</span>
+    private ArrayList&lt;ImageIcon&gt; listaImagenes;
+
+<span class="nc" id="L17">    public pnlInformacionCiudad(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre) {</span>
+<span class="nc" id="L18">        initComponents();</span>
+<span class="nc" id="L19">        modelo = unModelo;</span>
+<span class="nc" id="L20">        ciudad = unaCiudad;</span>
+<span class="nc" id="L21">        padre = unPadre;</span>
+<span class="nc" id="L22">        listaImagenes = unaCiudad.getImagenes();</span>
+<span class="nc" id="L23">        lblGaleria.setIcon(listaImagenes.get(0));</span>
+
+<span class="nc" id="L25">        txtIntroduccion.setOpaque(false);</span>
+<span class="nc" id="L26">        scroll1.setOpaque(false);</span>
+<span class="nc" id="L27">        scroll1.getViewport().setOpaque(false);</span>
+<span class="nc" id="L28">        scroll1.setBorder(null);</span>
+
+<span class="nc" id="L30">        txtInfoGral.setOpaque(false);</span>
+<span class="nc" id="L31">        scroll2.setOpaque(false);</span>
+<span class="nc" id="L32">        scroll2.getViewport().setOpaque(false);</span>
+<span class="nc" id="L33">        scroll2.setBorder(null);</span>
+
+<span class="nc" id="L35">        cargar();</span>
+<span class="nc" id="L36">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L42">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L43">        pnl = new javax.swing.JPanel();</span>
+<span class="nc" id="L44">        lblVolver = new javax.swing.JLabel();</span>
+<span class="nc" id="L45">        lblNombreCiudad = new javax.swing.JLabel();</span>
+<span class="nc" id="L46">        lblDondeDorimir = new javax.swing.JLabel();</span>
+<span class="nc" id="L47">        lblDondeComer = new javax.swing.JLabel();</span>
+<span class="nc" id="L48">        lblQueHacer = new javax.swing.JLabel();</span>
+<span class="nc" id="L49">        lblQueEstaCerca = new javax.swing.JLabel();</span>
+<span class="nc" id="L50">        pnlContenedor = new javax.swing.JPanel();</span>
+<span class="nc" id="L51">        lblSiguiente = new javax.swing.JLabel();</span>
+<span class="nc" id="L52">        lblAnterior = new javax.swing.JLabel();</span>
+<span class="nc" id="L53">        lblGaleria = new javax.swing.JLabel();</span>
+<span class="nc" id="L54">        scroll1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L55">        txtIntroduccion = new javax.swing.JTextArea();</span>
+<span class="nc" id="L56">        scroll2 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L57">        txtInfoGral = new javax.swing.JTextArea();</span>
+<span class="nc" id="L58">        lblRepercusiones = new javax.swing.JLabel();</span>
+<span class="nc" id="L59">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L60">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L61">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L62">        lblFondo = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L64">        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+
+<span class="nc" id="L66">        pnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L68">        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnHome.png&quot;))); // NOI18N</span>
+<span class="nc" id="L69">        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L70">        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L72">                lblVolverMouseClicked(evt);</span>
+<span class="nc" id="L73">            }</span>
+        });
+<span class="nc" id="L75">        pnl.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 38, 30, 30));</span>
+
+<span class="nc" id="L77">        lblNombreCiudad.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 26)); // NOI18N</span>
+<span class="nc" id="L78">        lblNombreCiudad.setForeground(new java.awt.Color(51, 51, 51));</span>
+<span class="nc" id="L79">        lblNombreCiudad.setText(&quot;Nombre de la Ciudad&quot;);</span>
+<span class="nc" id="L80">        pnl.add(lblNombreCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 36, -1, -1));</span>
+
+<span class="nc" id="L82">        lblDondeDorimir.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnDondeDormir.png&quot;))); // NOI18N</span>
+<span class="nc" id="L83">        lblDondeDorimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L84">        lblDondeDorimir.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L86">                lblDondeDorimirMouseClicked(evt);</span>
+<span class="nc" id="L87">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L89">                lblDondeDorimirMouseEntered(evt);</span>
+<span class="nc" id="L90">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L92">                lblDondeDorimirMouseExited(evt);</span>
+<span class="nc" id="L93">            }</span>
+        });
+<span class="nc" id="L95">        pnl.add(lblDondeDorimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 87, -1, -1));</span>
+
+<span class="nc" id="L97">        lblDondeComer.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnDondeComer.png&quot;))); // NOI18N</span>
+<span class="nc" id="L98">        lblDondeComer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L99">        lblDondeComer.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L101">                lblDondeComerMouseClicked(evt);</span>
+<span class="nc" id="L102">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L104">                lblDondeComerMouseEntered(evt);</span>
+<span class="nc" id="L105">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L107">                lblDondeComerMouseExited(evt);</span>
+<span class="nc" id="L108">            }</span>
+        });
+<span class="nc" id="L110">        pnl.add(lblDondeComer, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 87, 150, 30));</span>
+
+<span class="nc" id="L112">        lblQueHacer.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnQueHacer.png&quot;))); // NOI18N</span>
+<span class="nc" id="L113">        lblQueHacer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L114">        lblQueHacer.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L116">                lblQueHacerMouseClicked(evt);</span>
+<span class="nc" id="L117">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L119">                lblQueHacerMouseEntered(evt);</span>
+<span class="nc" id="L120">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L122">                lblQueHacerMouseExited(evt);</span>
+<span class="nc" id="L123">            }</span>
+        });
+<span class="nc" id="L125">        pnl.add(lblQueHacer, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 87, -1, -1));</span>
+
+<span class="nc" id="L127">        lblQueEstaCerca.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnQueEstaCerca.png&quot;))); // NOI18N</span>
+<span class="nc" id="L128">        lblQueEstaCerca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L129">        lblQueEstaCerca.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L131">                lblQueEstaCercaMouseClicked(evt);</span>
+<span class="nc" id="L132">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L134">                lblQueEstaCercaMouseEntered(evt);</span>
+<span class="nc" id="L135">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L137">                lblQueEstaCercaMouseExited(evt);</span>
+<span class="nc" id="L138">            }</span>
+        });
+<span class="nc" id="L140">        pnl.add(lblQueEstaCerca, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 87, 150, -1));</span>
+
+<span class="nc" id="L142">        pnlContenedor.setOpaque(false);</span>
+<span class="nc" id="L143">        pnlContenedor.setLayout(null);</span>
+
+<span class="nc" id="L145">        lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnGaleriader.png&quot;))); // NOI18N</span>
+<span class="nc" id="L146">        lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L147">        lblSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L149">                lblSiguienteMouseClicked(evt);</span>
+<span class="nc" id="L150">            }</span>
+        });
+<span class="nc" id="L152">        pnlContenedor.add(lblSiguiente);</span>
+<span class="nc" id="L153">        lblSiguiente.setBounds(420, 700, 0, 20);</span>
+
+<span class="nc" id="L155">        lblAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnGaleriaIzq.png&quot;))); // NOI18N</span>
+<span class="nc" id="L156">        lblAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L157">        lblAnterior.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L159">                lblAnteriorMouseClicked(evt);</span>
+<span class="nc" id="L160">            }</span>
+        });
+<span class="nc" id="L162">        pnlContenedor.add(lblAnterior);</span>
+<span class="nc" id="L163">        lblAnterior.setBounds(0, 700, 0, 0);</span>
+
+<span class="nc" id="L165">        lblGaleria.setText(&quot; &quot;);</span>
+<span class="nc" id="L166">        lblGaleria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));</span>
+<span class="nc" id="L167">        lblGaleria.setMinimumSize(new java.awt.Dimension(450, 280));</span>
+<span class="nc" id="L168">        lblGaleria.setPreferredSize(new java.awt.Dimension(450, 280));</span>
+<span class="nc" id="L169">        pnlContenedor.add(lblGaleria);</span>
+<span class="nc" id="L170">        lblGaleria.setBounds(0, 560, 450, 280);</span>
+
+<span class="nc" id="L172">        scroll1.setMaximumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L173">        scroll1.setMinimumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L174">        scroll1.setPreferredSize(new java.awt.Dimension(162, 80));</span>
+
+<span class="nc" id="L176">        txtIntroduccion.setEditable(false);</span>
+<span class="nc" id="L177">        txtIntroduccion.setColumns(20);</span>
+<span class="nc" id="L178">        txtIntroduccion.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 13)); // NOI18N</span>
+<span class="nc" id="L179">        txtIntroduccion.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L180">        txtIntroduccion.setLineWrap(true);</span>
+<span class="nc" id="L181">        txtIntroduccion.setRows(5);</span>
+<span class="nc" id="L182">        txtIntroduccion.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L183">        txtIntroduccion.setWrapStyleWord(true);</span>
+<span class="nc" id="L184">        txtIntroduccion.setAutoscrolls(false);</span>
+<span class="nc" id="L185">        txtIntroduccion.setBorder(null);</span>
+<span class="nc" id="L186">        txtIntroduccion.setHighlighter(null);</span>
+<span class="nc" id="L187">        scroll1.setViewportView(txtIntroduccion);</span>
+
+<span class="nc" id="L189">        pnlContenedor.add(scroll1);</span>
+<span class="nc" id="L190">        scroll1.setBounds(0, 0, 780, 80);</span>
+
+<span class="nc" id="L192">        txtInfoGral.setEditable(false);</span>
+<span class="nc" id="L193">        txtInfoGral.setColumns(20);</span>
+<span class="nc" id="L194">        txtInfoGral.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 13)); // NOI18N</span>
+<span class="nc" id="L195">        txtInfoGral.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L196">        txtInfoGral.setLineWrap(true);</span>
+<span class="nc" id="L197">        txtInfoGral.setRows(5);</span>
+<span class="nc" id="L198">        txtInfoGral.setWrapStyleWord(true);</span>
+<span class="nc" id="L199">        txtInfoGral.setHighlighter(null);</span>
+<span class="nc" id="L200">        txtInfoGral.setInheritsPopupMenu(true);</span>
+<span class="nc" id="L201">        scroll2.setViewportView(txtInfoGral);</span>
+
+<span class="nc" id="L203">        pnlContenedor.add(scroll2);</span>
+<span class="nc" id="L204">        scroll2.setBounds(0, 90, 450, 460);</span>
+
+<span class="nc" id="L206">        lblRepercusiones.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L207">        lblRepercusiones.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L208">        lblRepercusiones.setText(&quot;Repercusiones&quot;);</span>
+<span class="nc" id="L209">        pnlContenedor.add(lblRepercusiones);</span>
+<span class="nc" id="L210">        lblRepercusiones.setBounds(480, 90, 107, 17);</span>
+
+<span class="nc" id="L212">        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);</span>
+<span class="nc" id="L213">        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/Repercusiones.png&quot;))); // NOI18N</span>
+<span class="nc" id="L214">        jLabel3.setText(&quot;jLabel3&quot;);</span>
+<span class="nc" id="L215">        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);</span>
+<span class="nc" id="L216">        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L217">        pnlContenedor.add(jLabel3);</span>
+<span class="nc" id="L218">        jLabel3.setBounds(470, 70, 310, 760);</span>
+
+<span class="nc" id="L220">        jLabel2.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L221">        jLabel2.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L222">        jLabel2.setText(&quot;1985&quot;);</span>
+<span class="nc" id="L223">        pnlContenedor.add(jLabel2);</span>
+<span class="nc" id="L224">        jLabel2.setBounds(640, 90, 32, 17);</span>
+
+<span class="nc" id="L226">        jLabel4.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L227">        jLabel4.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L228">        jLabel4.setText(&quot;875&quot;);</span>
+<span class="nc" id="L229">        pnlContenedor.add(jLabel4);</span>
+<span class="nc" id="L230">        jLabel4.setBounds(720, 90, 24, 17);</span>
+
+<span class="nc" id="L232">        pnl.add(pnlContenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 140, 780, 840));</span>
+
+<span class="nc" id="L234">        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/InformacionCiudad.png&quot;))); // NOI18N</span>
+<span class="nc" id="L235">        pnl.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));</span>
+
+<span class="nc" id="L237">        jScrollPane1.setViewportView(pnl);</span>
+
+<span class="nc" id="L239">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
+<span class="nc" id="L240">        this.setLayout(layout);</span>
+<span class="nc" id="L241">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L242">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L243">            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L245">        layout.setVerticalGroup(</span>
+<span class="nc" id="L246">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L247">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L248">                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L249">                .addGap(0, 0, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L251">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void lblAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnteriorMouseClicked
+<span class="nc bnc" id="L254" title="All 2 branches missed.">        if (contador == 0) {</span>
+<span class="nc" id="L255">            contador = listaImagenes.size() - 1;</span>
+        } else {
+<span class="nc" id="L257">            contador--;</span>
+        }
+<span class="nc" id="L259">        lblGaleria.setIcon(listaImagenes.get(contador));</span>
+<span class="nc" id="L260">    }//GEN-LAST:event_lblAnteriorMouseClicked</span>
+
+    private void lblSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSiguienteMouseClicked
+<span class="nc bnc" id="L263" title="All 2 branches missed.">        if (contador == listaImagenes.size() - 1) {</span>
+<span class="nc" id="L264">            contador = 0;</span>
+        } else {
+<span class="nc" id="L266">            contador++;</span>
+        }
+
+<span class="nc" id="L269">        lblGaleria.setIcon(listaImagenes.get(contador));</span>
+<span class="nc" id="L270">    }//GEN-LAST:event_lblSiguienteMouseClicked</span>
+
+    private void lblDondeDorimirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeDorimirMouseEntered
+       
+<span class="nc" id="L274">    }//GEN-LAST:event_lblDondeDorimirMouseEntered</span>
+
+    private void lblDondeDorimirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeDorimirMouseExited
+<span class="nc" id="L277">        lblDondeDorimir.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnDondeDormir.png&quot;)));</span>
+<span class="nc" id="L278">    }//GEN-LAST:event_lblDondeDorimirMouseExited</span>
+
+    private void lblDondeComerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeComerMouseEntered
+       
+<span class="nc" id="L282">    }//GEN-LAST:event_lblDondeComerMouseEntered</span>
+
+    private void lblDondeComerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeComerMouseExited
+<span class="nc" id="L285">        lblDondeComer.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnDondeComer.png&quot;)));</span>
+<span class="nc" id="L286">    }//GEN-LAST:event_lblDondeComerMouseExited</span>
+
+    private void lblQueHacerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQueHacerMouseEntered
+       
+<span class="nc" id="L290">    }//GEN-LAST:event_lblQueHacerMouseEntered</span>
+
+    private void lblQueHacerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQueHacerMouseExited
+<span class="nc" id="L293">        lblQueHacer.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnQueHacer.png&quot;)));</span>
+<span class="nc" id="L294">    }//GEN-LAST:event_lblQueHacerMouseExited</span>
+
+    private void lblQueEstaCercaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQueEstaCercaMouseEntered
+      
+<span class="nc" id="L298">    }//GEN-LAST:event_lblQueEstaCercaMouseEntered</span>
+
+    private void lblQueEstaCercaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQueEstaCercaMouseExited
+<span class="nc" id="L301">        lblQueEstaCerca.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnQueEstaCerca.png&quot;)));</span>
+<span class="nc" id="L302">    }//GEN-LAST:event_lblQueEstaCercaMouseExited</span>
+
+    private void lblDondeDorimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeDorimirMouseClicked
+<span class="nc" id="L305">        padre.remove(this);</span>
+<span class="nc" id="L306">        padre.add(new pnlDondeQue(modelo, ciudad, padre, alojamiento));</span>
+<span class="nc" id="L307">        padre.pack();</span>
+<span class="nc" id="L308">    }//GEN-LAST:event_lblDondeDorimirMouseClicked</span>
+
+    private void lblDondeComerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeComerMouseClicked
+<span class="nc" id="L311">        padre.remove(this);</span>
+<span class="nc" id="L312">        padre.add(new pnlDondeQue(modelo, ciudad, padre, estGastronomico));</span>
+<span class="nc" id="L313">        padre.pack();</span>
+<span class="nc" id="L314">    }//GEN-LAST:event_lblDondeComerMouseClicked</span>
+
+    private void lblQueHacerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQueHacerMouseClicked
+<span class="nc" id="L317">        padre.remove(this);</span>
+<span class="nc" id="L318">        padre.add(new pnlDondeQue(modelo, ciudad, padre, actividad));</span>
+<span class="nc" id="L319">        padre.pack();</span>
+<span class="nc" id="L320">    }//GEN-LAST:event_lblQueHacerMouseClicked</span>
+
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+<span class="nc" id="L323">        padre.remove(this);</span>
+<span class="nc" id="L324">        padre.add(new pnlInicio(modelo, padre));</span>
+<span class="nc" id="L325">        padre.pack();</span>
+<span class="nc" id="L326">    }//GEN-LAST:event_lblVolverMouseClicked</span>
+
+    private void lblQueEstaCercaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQueEstaCercaMouseClicked
+<span class="nc" id="L329">        padre.remove(this);</span>
+<span class="nc" id="L330">        padre.add(new pnlInicio(modelo, padre));</span>
+<span class="nc" id="L331">        padre.pack();</span>
+<span class="nc" id="L332">    }//GEN-LAST:event_lblQueEstaCercaMouseClicked</span>
+
+    private void cargar() {
+<span class="nc" id="L335">        lblNombreCiudad.setText(ciudad.getNombre());</span>
+<span class="nc" id="L336">        txtIntroduccion.setText(ciudad.getDescripcion());</span>
+<span class="nc" id="L337">        txtInfoGral.setText(ciudad.getInfoGral());</span>
+<span class="nc" id="L338">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAnterior;
+    private javax.swing.JLabel lblDondeComer;
+    private javax.swing.JLabel lblDondeDorimir;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblGaleria;
+    private javax.swing.JLabel lblNombreCiudad;
+    private javax.swing.JLabel lblQueEstaCerca;
+    private javax.swing.JLabel lblQueHacer;
+    private javax.swing.JLabel lblRepercusiones;
+    private javax.swing.JLabel lblSiguiente;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JPanel pnl;
+    private javax.swing.JPanel pnlContenedor;
+    private javax.swing.JScrollPane scroll1;
+    private javax.swing.JScrollPane scroll2;
+    private javax.swing.JTextArea txtInfoGral;
+    private javax.swing.JTextArea txtIntroduccion;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

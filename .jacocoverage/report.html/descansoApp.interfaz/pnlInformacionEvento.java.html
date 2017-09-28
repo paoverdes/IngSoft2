@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>pnlInformacionEvento.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.interfaz</a> &gt; <span class="el_source">pnlInformacionEvento.java</span></div><h1>pnlInformacionEvento.java</h1><pre class="source lang-java linenums">package descansoApp.interfaz;
+
+import javax.swing.JFrame;
+import descansoApp.dominio.Evento;
+import descansoApp.dominio.Sistema;
+import descansoApp.dominio.Viaje;
+
+public class pnlInformacionEvento extends javax.swing.JPanel {
+
+    private Evento evento;
+    private JFrame miVentana;
+    private Viaje viaje;
+    private Sistema modelo;
+    
+<span class="nc" id="L15">    public pnlInformacionEvento(Sistema unModelo, Viaje unViaje, Evento unEvento, JFrame unContenedor) {</span>
+      
+<span class="nc" id="L17">        initComponents();</span>
+<span class="nc" id="L18">        modelo = unModelo;</span>
+<span class="nc" id="L19">        evento = unEvento;</span>
+<span class="nc" id="L20">        viaje = unViaje;</span>
+<span class="nc" id="L21">        miVentana = unContenedor;</span>
+        
+<span class="nc" id="L23">        txtNombre.setOpaque(false);</span>
+<span class="nc" id="L24">        scroll1.setOpaque(false);</span>
+<span class="nc" id="L25">        scroll1.getViewport().setOpaque(false);</span>
+<span class="nc" id="L26">        scroll1.setBorder(null);</span>
+<span class="nc" id="L27">        txtInicio.setOpaque(false);</span>
+<span class="nc" id="L28">        scroll2.setOpaque(false);</span>
+<span class="nc" id="L29">        scroll2.getViewport().setOpaque(false);</span>
+<span class="nc" id="L30">        scroll2.setBorder(null);</span>
+<span class="nc" id="L31">        txtFin.setOpaque(false);</span>
+<span class="nc" id="L32">        scroll3.setOpaque(false);</span>
+<span class="nc" id="L33">        scroll3.getViewport().setOpaque(false);</span>
+<span class="nc" id="L34">        scroll3.setBorder(null);</span>
+<span class="nc" id="L35">        txtUbicacion.setOpaque(false);</span>
+<span class="nc" id="L36">        scroll4.setOpaque(false);</span>
+<span class="nc" id="L37">        scroll4.getViewport().setOpaque(false);</span>
+<span class="nc" id="L38">        scroll4.setBorder(null);</span>
+<span class="nc" id="L39">        txtDescripcion.setOpaque(false);</span>
+<span class="nc" id="L40">        scroll5.setOpaque(false);</span>
+<span class="nc" id="L41">        scroll5.getViewport().setOpaque(false);</span>
+<span class="nc" id="L42">        scroll5.setBorder(null);</span>
+        
+<span class="nc" id="L44">        cargar();</span>
+<span class="nc" id="L45">    }</span>
+
+   
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L52">        scroll4 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L53">        txtDescripcion = new javax.swing.JTextArea();</span>
+<span class="nc" id="L54">        scroll3 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L55">        txtUbicacion = new javax.swing.JTextArea();</span>
+<span class="nc" id="L56">        scroll2 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L57">        txtFin = new javax.swing.JTextArea();</span>
+<span class="nc" id="L58">        scroll1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L59">        txtInicio = new javax.swing.JTextArea();</span>
+<span class="nc" id="L60">        scroll5 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L61">        txtNombre = new javax.swing.JTextArea();</span>
+<span class="nc" id="L62">        txtHoraFin = new javax.swing.JTextField();</span>
+<span class="nc" id="L63">        txtHoraInicio = new javax.swing.JTextField();</span>
+<span class="nc" id="L64">        lblVolver = new javax.swing.JLabel();</span>
+<span class="nc" id="L65">        lblFondo = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L67">        setPreferredSize(new java.awt.Dimension(490, 285));</span>
+<span class="nc" id="L68">        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L70">        scroll4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L71">        scroll4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L72">        scroll4.setMaximumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L73">        scroll4.setMinimumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L74">        scroll4.setPreferredSize(new java.awt.Dimension(162, 80));</span>
+
+<span class="nc" id="L76">        txtDescripcion.setEditable(false);</span>
+<span class="nc" id="L77">        txtDescripcion.setColumns(20);</span>
+<span class="nc" id="L78">        txtDescripcion.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L79">        txtDescripcion.setLineWrap(true);</span>
+<span class="nc" id="L80">        txtDescripcion.setRows(5);</span>
+<span class="nc" id="L81">        txtDescripcion.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L82">        txtDescripcion.setWrapStyleWord(true);</span>
+<span class="nc" id="L83">        txtDescripcion.setAutoscrolls(false);</span>
+<span class="nc" id="L84">        txtDescripcion.setBorder(null);</span>
+<span class="nc" id="L85">        txtDescripcion.setHighlighter(null);</span>
+<span class="nc" id="L86">        scroll4.setViewportView(txtDescripcion);</span>
+
+<span class="nc" id="L88">        add(scroll4, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 95, 200, 150));</span>
+
+<span class="nc" id="L90">        scroll3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L91">        scroll3.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L92">        scroll3.setMaximumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L93">        scroll3.setMinimumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L94">        scroll3.setPreferredSize(new java.awt.Dimension(162, 80));</span>
+
+<span class="nc" id="L96">        txtUbicacion.setEditable(false);</span>
+<span class="nc" id="L97">        txtUbicacion.setColumns(20);</span>
+<span class="nc" id="L98">        txtUbicacion.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L99">        txtUbicacion.setLineWrap(true);</span>
+<span class="nc" id="L100">        txtUbicacion.setRows(5);</span>
+<span class="nc" id="L101">        txtUbicacion.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L102">        txtUbicacion.setWrapStyleWord(true);</span>
+<span class="nc" id="L103">        txtUbicacion.setAutoscrolls(false);</span>
+<span class="nc" id="L104">        txtUbicacion.setBorder(null);</span>
+<span class="nc" id="L105">        txtUbicacion.setHighlighter(null);</span>
+<span class="nc" id="L106">        scroll3.setViewportView(txtUbicacion);</span>
+
+<span class="nc" id="L108">        add(scroll3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 225, 130, 20));</span>
+
+<span class="nc" id="L110">        scroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L111">        scroll2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L112">        scroll2.setMaximumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L113">        scroll2.setMinimumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L114">        scroll2.setPreferredSize(new java.awt.Dimension(162, 80));</span>
+
+<span class="nc" id="L116">        txtFin.setEditable(false);</span>
+<span class="nc" id="L117">        txtFin.setColumns(20);</span>
+<span class="nc" id="L118">        txtFin.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L119">        txtFin.setLineWrap(true);</span>
+<span class="nc" id="L120">        txtFin.setRows(5);</span>
+<span class="nc" id="L121">        txtFin.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L122">        txtFin.setWrapStyleWord(true);</span>
+<span class="nc" id="L123">        txtFin.setAutoscrolls(false);</span>
+<span class="nc" id="L124">        txtFin.setBorder(null);</span>
+<span class="nc" id="L125">        txtFin.setHighlighter(null);</span>
+<span class="nc" id="L126">        scroll2.setViewportView(txtFin);</span>
+
+<span class="nc" id="L128">        add(scroll2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 165, 130, 20));</span>
+
+<span class="nc" id="L130">        scroll1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L131">        scroll1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L132">        scroll1.setMaximumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L133">        scroll1.setMinimumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L134">        scroll1.setPreferredSize(new java.awt.Dimension(162, 80));</span>
+
+<span class="nc" id="L136">        txtInicio.setEditable(false);</span>
+<span class="nc" id="L137">        txtInicio.setColumns(20);</span>
+<span class="nc" id="L138">        txtInicio.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L139">        txtInicio.setLineWrap(true);</span>
+<span class="nc" id="L140">        txtInicio.setRows(5);</span>
+<span class="nc" id="L141">        txtInicio.setToolTipText(&quot;&quot;);</span>
+<span class="nc" id="L142">        txtInicio.setWrapStyleWord(true);</span>
+<span class="nc" id="L143">        txtInicio.setAutoscrolls(false);</span>
+<span class="nc" id="L144">        txtInicio.setBorder(null);</span>
+<span class="nc" id="L145">        txtInicio.setHighlighter(null);</span>
+<span class="nc" id="L146">        scroll1.setViewportView(txtInicio);</span>
+
+<span class="nc" id="L148">        add(scroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 105, 130, 20));</span>
+
+<span class="nc" id="L150">        scroll5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L151">        scroll5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+
+<span class="nc" id="L153">        txtNombre.setEditable(false);</span>
+<span class="nc" id="L154">        txtNombre.setColumns(20);</span>
+<span class="nc" id="L155">        txtNombre.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L156">        txtNombre.setLineWrap(true);</span>
+<span class="nc" id="L157">        txtNombre.setRows(5);</span>
+<span class="nc" id="L158">        txtNombre.setWrapStyleWord(true);</span>
+<span class="nc" id="L159">        txtNombre.setAutoscrolls(false);</span>
+<span class="nc" id="L160">        scroll5.setViewportView(txtNombre);</span>
+
+<span class="nc" id="L162">        add(scroll5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 75, 130, 20));</span>
+
+<span class="nc" id="L164">        txtHoraFin.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L165">        txtHoraFin.setBorder(null);</span>
+<span class="nc" id="L166">        txtHoraFin.setOpaque(false);</span>
+<span class="nc" id="L167">        add(txtHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 195, 130, 20));</span>
+
+<span class="nc" id="L169">        txtHoraInicio.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L170">        txtHoraInicio.setBorder(null);</span>
+<span class="nc" id="L171">        txtHoraInicio.setOpaque(false);</span>
+<span class="nc" id="L172">        add(txtHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 135, 130, 20));</span>
+
+<span class="nc" id="L174">        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnVolver.png&quot;))); // NOI18N</span>
+<span class="nc" id="L175">        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L176">        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L178">                lblVolverMouseClicked(evt);</span>
+<span class="nc" id="L179">            }</span>
+        });
+<span class="nc" id="L181">        add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 28, -1, -1));</span>
+
+<span class="nc" id="L183">        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/InformacionEvento.png&quot;))); // NOI18N</span>
+<span class="nc" id="L184">        add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));</span>
+<span class="nc" id="L185">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+<span class="nc" id="L188">        miVentana.remove(this);</span>
+<span class="nc" id="L189">        miVentana.add(new pnlItinerario(modelo, viaje, miVentana));</span>
+<span class="nc" id="L190">        miVentana.pack();</span>
+<span class="nc" id="L191">    }//GEN-LAST:event_lblVolverMouseClicked</span>
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JScrollPane scroll1;
+    private javax.swing.JScrollPane scroll2;
+    private javax.swing.JScrollPane scroll3;
+    private javax.swing.JScrollPane scroll4;
+    private javax.swing.JScrollPane scroll5;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JTextArea txtFin;
+    private javax.swing.JTextField txtHoraFin;
+    private javax.swing.JTextField txtHoraInicio;
+    private javax.swing.JTextArea txtInicio;
+    private javax.swing.JTextArea txtNombre;
+    private javax.swing.JTextArea txtUbicacion;
+    // End of variables declaration//GEN-END:variables
+
+    private void cargar() {
+<span class="nc" id="L212">        txtNombre.setText(evento.getNombre());</span>
+<span class="nc" id="L213">        txtInicio.setText(evento.fechaInicioToString());</span>
+<span class="nc" id="L214">        txtHoraInicio.setText(evento.horaInicioToString());</span>
+<span class="nc" id="L215">        txtFin.setText(evento.fechaFinToString());</span>
+<span class="nc" id="L216">        txtHoraFin.setText(evento.horaFinToString());</span>
+<span class="nc" id="L217">        txtUbicacion.setText(evento.getUbicacion());</span>
+<span class="nc" id="L218">        txtDescripcion.setText(evento.getDescripcion());</span>
+<span class="nc" id="L219">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

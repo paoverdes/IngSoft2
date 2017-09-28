@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>pResultadoIt3.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.interfaz</a> &gt; <span class="el_source">pResultadoIt3.java</span></div><h1>pResultadoIt3.java</h1><pre class="source lang-java linenums">package descansoApp.interfaz;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import descansoApp.dominio.Evento;
+import descansoApp.dominio.Sistema;
+import descansoApp.dominio.Viaje;
+
+public class pResultadoIt3 extends javax.swing.JPanel {
+
+    private Evento evento;
+    private Viaje viaje;
+    private JFrame miVentana;
+    private JPanel miPanel;
+    private Sistema modelo;
+
+<span class="nc" id="L17">    public pResultadoIt3(Sistema unModelo,Viaje unViaje, Evento unEvento, JFrame miContenedorPrincipal, JPanel miContenedor) {</span>
+<span class="nc" id="L18">        initComponents();</span>
+<span class="nc" id="L19">        modelo= unModelo;</span>
+<span class="nc" id="L20">        evento = unEvento;</span>
+<span class="nc" id="L21">        viaje = unViaje;</span>
+<span class="nc" id="L22">        miVentana = miContenedorPrincipal;</span>
+<span class="nc" id="L23">        miPanel = miContenedor;</span>
+
+<span class="nc" id="L25">        lblHora.setText(evento.horaInicioToString());</span>
+<span class="nc" id="L26">        lblNombre.setText(evento.getNombre());</span>
+<span class="nc" id="L27">        lblUbicacion.setText(&quot;(&quot; + evento.getUbicacion() + &quot;)&quot;);</span>
+<span class="nc" id="L28">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L34">        lblHora = new javax.swing.JLabel();</span>
+<span class="nc" id="L35">        lblNombre = new javax.swing.JLabel();</span>
+<span class="nc" id="L36">        lblUbicacion = new javax.swing.JLabel();</span>
+<span class="nc" id="L37">        lblEditar = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L39">        setOpaque(false);</span>
+
+<span class="nc" id="L41">        lblHora.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 13)); // NOI18N</span>
+<span class="nc" id="L42">        lblHora.setText(&quot;18:00 hs&quot;);</span>
+
+<span class="nc" id="L44">        lblNombre.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 13)); // NOI18N</span>
+<span class="nc" id="L45">        lblNombre.setForeground(new java.awt.Color(0, 51, 204));</span>
+<span class="nc" id="L46">        lblNombre.setText(&quot;Nombre del Evento&quot;);</span>
+<span class="nc" id="L47">        lblNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L48">        lblNombre.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L50">                lblNombreMouseClicked(evt);</span>
+<span class="nc" id="L51">            }</span>
+        });
+
+<span class="nc" id="L54">        lblUbicacion.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 11)); // NOI18N</span>
+<span class="nc" id="L55">        lblUbicacion.setText(&quot;(Ubicacion)&quot;);</span>
+
+<span class="nc" id="L57">        lblEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/Editar.png&quot;))); // NOI18N</span>
+<span class="nc" id="L58">        lblEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L59">        lblEditar.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L61">                lblEditarMouseClicked(evt);</span>
+<span class="nc" id="L62">            }</span>
+        });
+
+<span class="nc" id="L65">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
+<span class="nc" id="L66">        this.setLayout(layout);</span>
+<span class="nc" id="L67">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L68">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L69">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L70">                .addGap(77, 77, 77)</span>
+<span class="nc" id="L71">                .addComponent(lblHora)</span>
+<span class="nc" id="L72">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L73">                .addComponent(lblNombre)</span>
+<span class="nc" id="L74">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L75">                .addComponent(lblUbicacion)</span>
+<span class="nc" id="L76">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L77">                .addComponent(lblEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L78">                .addContainerGap(177, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L80">        layout.setVerticalGroup(</span>
+<span class="nc" id="L81">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L82">            .addComponent(lblEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L83">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L84">                .addComponent(lblHora)</span>
+<span class="nc" id="L85">                .addComponent(lblNombre)</span>
+<span class="nc" id="L86">                .addComponent(lblUbicacion))</span>
+        );
+<span class="nc" id="L88">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void lblEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEditarMouseClicked
+<span class="nc" id="L91">        miVentana.remove(miPanel);</span>
+<span class="nc" id="L92">        miVentana.add(new pnlEvento(modelo, viaje, evento.getCiudad(), evento, miVentana));</span>
+<span class="nc" id="L93">        miVentana.pack();</span>
+<span class="nc" id="L94">    }//GEN-LAST:event_lblEditarMouseClicked</span>
+
+    private void lblNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreMouseClicked
+<span class="nc" id="L97">        miVentana.remove(miPanel);</span>
+<span class="nc" id="L98">        miVentana.add(new pnlInformacionEvento(modelo, viaje, evento, miVentana));</span>
+<span class="nc" id="L99">        miVentana.pack();        </span>
+<span class="nc" id="L100">    }//GEN-LAST:event_lblNombreMouseClicked</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblEditar;
+    private javax.swing.JLabel lblHora;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblUbicacion;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

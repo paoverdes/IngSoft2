@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ArchivoLectura.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.herramientas</a> &gt; <span class="el_source">ArchivoLectura.java</span></div><h1>ArchivoLectura.java</h1><pre class="source lang-java linenums">package descansoApp.herramientas;
+
+import java.io.*;
+import javax.swing.JOptionPane;
+
+public class ArchivoLectura {
+    private BufferedReader in;
+    private String linea;
+    
+<span class="nc" id="L10">    public ArchivoLectura (String unNombre){</span>
+        try {
+<span class="nc" id="L12">            in = new BufferedReader(new FileReader(unNombre));</span>
+<span class="nc" id="L13">        } catch (FileNotFoundException e) {</span>
+<span class="nc" id="L14">            JOptionPane.showMessageDialog(null, &quot;Error: No se encuentra el archivo.&quot;, &quot;No hay archivo!&quot;, 3);</span>
+<span class="nc" id="L15">        }</span>
+<span class="nc" id="L16">    }</span>
+    
+    public boolean hayMasLineas() {
+        try {
+<span class="nc" id="L20">            linea = in.readLine();</span>
+<span class="nc" id="L21">        } catch (IOException e) {</span>
+<span class="nc" id="L22">            linea = null;</span>
+<span class="nc" id="L23">        }</span>
+        
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        return linea != null;</span>
+    }
+    
+    public String linea(){
+<span class="nc" id="L29">        return linea;</span>
+    }
+    
+    public boolean cerrar(){
+<span class="nc" id="L33">        boolean ok = true;</span>
+        
+        try {
+<span class="nc" id="L36">            in.close();</span>
+<span class="nc" id="L37">        } catch (IOException e) {</span>
+<span class="nc" id="L38">            JOptionPane.showMessageDialog(null, &quot;Error: No se pudo cerrar el archivo.&quot;, &quot;Cerrar Archivo&quot;, 3);</span>
+<span class="nc" id="L39">            ok = false;</span>
+<span class="nc" id="L40">        }</span>
+        
+<span class="nc" id="L42">        return ok;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

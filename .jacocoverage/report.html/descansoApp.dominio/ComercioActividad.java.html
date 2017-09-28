@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ComercioActividad.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.dominio</a> &gt; <span class="el_source">ComercioActividad.java</span></div><h1>ComercioActividad.java</h1><pre class="source lang-java linenums">package descansoApp.dominio;
+
+import descansoApp.herramientas.TipoCA;
+import java.io.Serializable;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+
+public class ComercioActividad implements Serializable, Comparable&lt;ComercioActividad&gt; {
+    private String nombre;
+    private String detalles;
+    private TipoCA tipo;
+    private String categoria;
+    private String horario;
+    private String ubicacion;
+    private String telefono;
+    private String web;
+    private String precio;
+    private ArrayList&lt;ImageIcon&gt; imagenes;
+
+<span class="fc" id="L20">    public ComercioActividad() {</span>
+<span class="fc" id="L21">        this.nombre = &quot;&quot;;</span>
+<span class="fc" id="L22">        this.detalles = &quot;&quot;;</span>
+<span class="fc" id="L23">        this.tipo = null;</span>
+<span class="fc" id="L24">        this.categoria = &quot;&quot;;</span>
+<span class="fc" id="L25">        this.horario = &quot;&quot;;</span>
+<span class="fc" id="L26">        this.ubicacion = &quot;&quot;;</span>
+<span class="fc" id="L27">        this.telefono = &quot;&quot;;</span>
+<span class="fc" id="L28">        this.web = &quot;&quot;;</span>
+<span class="fc" id="L29">        this.precio = &quot;&quot;;</span>
+<span class="fc" id="L30">        this.imagenes = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L31">    }</span>
+
+<span class="fc" id="L33">    public ComercioActividad(String nombre, String detalles,TipoCA tipo, String categoria, String horario, String ubicacion, String telefono, String web, String precio) {</span>
+<span class="fc" id="L34">        this.nombre = nombre;</span>
+<span class="fc" id="L35">        this.detalles = detalles;</span>
+<span class="fc" id="L36">        this.tipo = tipo;</span>
+<span class="fc" id="L37">        this.categoria = categoria;</span>
+<span class="fc" id="L38">        this.horario = horario;</span>
+<span class="fc" id="L39">        this.ubicacion = ubicacion;</span>
+<span class="fc" id="L40">        this.telefono = telefono;</span>
+<span class="fc" id="L41">        this.web = web;</span>
+<span class="fc" id="L42">        this.precio = precio;</span>
+<span class="fc" id="L43">        this.imagenes = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L44">    }</span>
+
+    public String getNombre() {
+<span class="fc" id="L47">        return nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="fc" id="L51">        this.nombre = nombre;</span>
+<span class="fc" id="L52">    }</span>
+
+    public String getDetalles() {
+<span class="fc" id="L55">        return detalles;</span>
+    }
+
+    public void setDetalles(String detalles) {
+<span class="fc" id="L59">        this.detalles = detalles;</span>
+<span class="fc" id="L60">    }</span>
+
+    public TipoCA getTipo() {
+<span class="fc" id="L63">        return tipo;</span>
+    }
+
+    public void setTipo(TipoCA tipo) {
+<span class="fc" id="L67">        this.tipo = tipo;</span>
+<span class="fc" id="L68">    }</span>
+
+    public String getCategoria() {
+<span class="fc" id="L71">        return categoria;</span>
+    }
+
+    public void setCategoria(String categoria) {
+<span class="fc" id="L75">        this.categoria = categoria;</span>
+<span class="fc" id="L76">    }</span>
+
+    public String getHorario() {
+<span class="fc" id="L79">        return horario;</span>
+    }
+
+    public void setHorario(String horario) {
+<span class="fc" id="L83">        this.horario = horario;</span>
+<span class="fc" id="L84">    }</span>
+
+    public String getUbicacion() {
+<span class="fc" id="L87">        return ubicacion;</span>
+    }
+
+    public void setUbicacion(String ubicacion) {
+<span class="fc" id="L91">        this.ubicacion = ubicacion;</span>
+<span class="fc" id="L92">    }</span>
+
+    public String getTelefono() {
+<span class="fc" id="L95">        return telefono;</span>
+    }
+
+    public void setTelefono(String telefono) {
+<span class="fc" id="L99">        this.telefono = telefono;</span>
+<span class="fc" id="L100">    }</span>
+
+    public String getWeb() {
+<span class="fc" id="L103">        return web;</span>
+    }
+
+    public void setWeb(String web) {
+<span class="fc" id="L107">        this.web = web;</span>
+<span class="fc" id="L108">    }</span>
+
+    public String getPrecio() {
+<span class="fc" id="L111">        return precio;</span>
+    }
+
+    public void setPrecio(String precio) {
+<span class="fc" id="L115">        this.precio = precio;</span>
+<span class="fc" id="L116">    }</span>
+
+    public ArrayList&lt;ImageIcon&gt; getImagenes() {
+<span class="fc" id="L119">        return imagenes;</span>
+    }
+
+    public void agregarImagen(String ruta){
+<span class="fc" id="L123">        imagenes.add(new javax.swing.ImageIcon(getClass().getResource(ruta)));</span>
+<span class="fc" id="L124">    }</span>
+    
+    @Override
+    public boolean equals(Object obj) {
+<span class="fc" id="L128">        boolean valido = false;</span>
+<span class="fc" id="L129">        ComercioActividad ca = (ComercioActividad) obj;</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">        if (ca.getNombre().equalsIgnoreCase(this.getNombre())) {</span>
+<span class="fc" id="L131">            valido = true;</span>
+        }
+<span class="fc" id="L133">        return valido;</span>
+    }
+    
+    @Override
+    public int compareTo(ComercioActividad cA){
+<span class="nc" id="L138">        return nombre.compareTo(cA.getNombre());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

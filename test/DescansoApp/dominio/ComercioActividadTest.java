@@ -232,7 +232,7 @@ public class ComercioActividadTest {
         String expResult= "basedatos/fiesta1.jpg";
         String aux = instance.getImagenes().get(0).getDescription();
         String [] result= aux.toLowerCase().split("/descansoapp/");
-        assertEquals(expResult, result[2]);
+        assertEquals(expResult, result[1]);
     }
 
     @Test
@@ -246,7 +246,7 @@ public class ComercioActividadTest {
         String expResult= "basedatos/fiesta1.jpg";
         String aux = instance.getImagenes().get(0).getDescription();
         String [] result= aux.toLowerCase().split("/descansoapp/");
-        assertEquals(expResult, result[2]);                
+        assertEquals(expResult, result[1]);                
     }
 
     @Test

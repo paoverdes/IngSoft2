@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>pnlInformacionComercioActividad.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;descansoApp&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">descansoApp.interfaz</a> &gt; <span class="el_source">pnlInformacionComercioActividad.java</span></div><h1>pnlInformacionComercioActividad.java</h1><pre class="source lang-java linenums">package descansoApp.interfaz;
+
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import descansoApp.dominio.ComercioActividad;
+import descansoApp.dominio.Sistema;
+import descansoApp.dominio.Viaje;
+
+public class pnlInformacionComercioActividad extends javax.swing.JPanel {
+
+    private Sistema modelo;
+    private ComercioActividad cA;
+    private JFrame padre;
+    private ArrayList&lt;ImageIcon&gt; listaImagenes;
+<span class="nc" id="L22">    private int contador = 0;</span>
+    private descansoApp.dominio.Ciudad ciudad;
+
+<span class="nc" id="L25">    public pnlInformacionComercioActividad(Sistema unModelo, ComercioActividad unCA, JFrame unPadre, descansoApp.dominio.Ciudad unaCiudad) {</span>
+<span class="nc" id="L26">        initComponents();</span>
+<span class="nc" id="L27">        modelo = unModelo;</span>
+<span class="nc" id="L28">        cA = unCA;</span>
+<span class="nc" id="L29">        padre = unPadre;</span>
+<span class="nc" id="L30">        ciudad = unaCiudad;</span>
+
+<span class="nc" id="L32">        listaImagenes = cA.getImagenes();</span>
+<span class="nc" id="L33">        lblGaleria.setIcon(listaImagenes.get(0));</span>
+
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (!modelo.getListaViajes().isEmpty()) {</span>
+<span class="nc" id="L36">            Iterator&lt;Viaje&gt; itViaje = modelo.getListaViajes().iterator();</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            while (itViaje.hasNext()) {</span>
+<span class="nc" id="L38">                Viaje viaje = itViaje.next();</span>
+<span class="nc" id="L39">                comboViajes.addItem(viaje);</span>
+<span class="nc" id="L40">            }</span>
+<span class="nc" id="L41">        } else {</span>
+<span class="nc" id="L42">            comboViajes.setVisible(false);</span>
+<span class="nc" id="L43">            lblBoton.setVisible(false);</span>
+        }
+        
+<span class="nc" id="L46">        cargar();</span>
+<span class="nc" id="L47">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L53">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L54">        jPanel1 = new javax.swing.JPanel();</span>
+<span class="nc" id="L55">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L56">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L57">        lblRepercusiones = new javax.swing.JLabel();</span>
+<span class="nc" id="L58">        scroll1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L59">        txtIntroduccion = new javax.swing.JTextArea();</span>
+<span class="nc" id="L60">        lblNombreEst = new javax.swing.JLabel();</span>
+<span class="nc" id="L61">        lblSiguiente = new javax.swing.JLabel();</span>
+<span class="nc" id="L62">        comboViajes = new javax.swing.JComboBox();</span>
+<span class="nc" id="L63">        lblVolver = new javax.swing.JLabel();</span>
+<span class="nc" id="L64">        lblAnterior = new javax.swing.JLabel();</span>
+<span class="nc" id="L65">        scroll = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L66">        txtHorarios = new javax.swing.JTextArea();</span>
+<span class="nc" id="L67">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L68">        lblGaleria = new javax.swing.JLabel();</span>
+<span class="nc" id="L69">        lblHorarios = new javax.swing.JLabel();</span>
+<span class="nc" id="L70">        lblTelefono = new javax.swing.JLabel();</span>
+<span class="nc" id="L71">        lblWeb = new javax.swing.JLabel();</span>
+<span class="nc" id="L72">        scroll2 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L73">        txtTelefono = new javax.swing.JTextArea();</span>
+<span class="nc" id="L74">        lblPrecio1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L75">        scroll5 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L76">        txtPrecio = new javax.swing.JTextArea();</span>
+<span class="nc" id="L77">        lblUbicacion = new javax.swing.JLabel();</span>
+<span class="nc" id="L78">        scroll4 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L79">        txtUbicacion = new javax.swing.JTextArea();</span>
+<span class="nc" id="L80">        lblBoton = new javax.swing.JLabel();</span>
+<span class="nc" id="L81">        lblpagina = new javax.swing.JLabel();</span>
+<span class="nc" id="L82">        lblVolver1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L83">        lblFondo = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L85">        setMaximumSize(new java.awt.Dimension(840, 500));</span>
+<span class="nc" id="L86">        setMinimumSize(new java.awt.Dimension(840, 500));</span>
+<span class="nc" id="L87">        setPreferredSize(new java.awt.Dimension(840, 500));</span>
+
+<span class="nc" id="L89">        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L90">        jScrollPane1.setName(&quot;&quot;); // NOI18N</span>
+<span class="nc" id="L91">        jScrollPane1.setPreferredSize(new java.awt.Dimension(840, 500));</span>
+
+<span class="nc" id="L93">        jPanel1.setMaximumSize(new java.awt.Dimension(840, 688));</span>
+<span class="nc" id="L94">        jPanel1.setPreferredSize(new java.awt.Dimension(840, 688));</span>
+<span class="nc" id="L95">        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());</span>
+
+<span class="nc" id="L97">        jLabel4.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L98">        jLabel4.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L99">        jLabel4.setText(&quot;875&quot;);</span>
+<span class="nc" id="L100">        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 202, -1, -1));</span>
+
+<span class="nc" id="L102">        jLabel2.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L103">        jLabel2.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L104">        jLabel2.setText(&quot;1985&quot;);</span>
+<span class="nc" id="L105">        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 202, -1, -1));</span>
+
+<span class="nc" id="L107">        lblRepercusiones.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L108">        lblRepercusiones.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L109">        lblRepercusiones.setText(&quot;Repercusiones&quot;);</span>
+<span class="nc" id="L110">        jPanel1.add(lblRepercusiones, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));</span>
+
+<span class="nc" id="L112">        scroll1.setMaximumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L113">        scroll1.setMinimumSize(new java.awt.Dimension(162, 80));</span>
+<span class="nc" id="L114">        scroll1.setPreferredSize(new java.awt.Dimension(162, 80));</span>
+
+<span class="nc" id="L116">        txtIntroduccion.setEditable(false);</span>
+<span class="nc" id="L117">        txtIntroduccion.setColumns(20);</span>
+<span class="nc" id="L118">        txtIntroduccion.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 13)); // NOI18N</span>
+<span class="nc" id="L119">        txtIntroduccion.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L120">        txtIntroduccion.setLineWrap(true);</span>
+<span class="nc" id="L121">        txtIntroduccion.setRows(5);</span>
+<span class="nc" id="L122">        txtIntroduccion.setWrapStyleWord(true);</span>
+<span class="nc" id="L123">        txtIntroduccion.setBorder(null);</span>
+<span class="nc" id="L124">        txtIntroduccion.setHighlighter(null);</span>
+<span class="nc" id="L125">        scroll1.setViewportView(txtIntroduccion);</span>
+
+<span class="nc" id="L127">        jPanel1.add(scroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 770, 90));</span>
+
+<span class="nc" id="L129">        lblNombreEst.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 26)); // NOI18N</span>
+<span class="nc" id="L130">        lblNombreEst.setText(&quot;Nombre Establecimiento&quot;);</span>
+<span class="nc" id="L131">        jPanel1.add(lblNombreEst, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 36, 400, 30));</span>
+
+<span class="nc" id="L133">        lblSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnGaleriader.png&quot;))); // NOI18N</span>
+<span class="nc" id="L134">        lblSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L135">        lblSiguiente.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L137">                lblSiguienteMouseClicked(evt);</span>
+<span class="nc" id="L138">            }</span>
+        });
+<span class="nc" id="L140">        jPanel1.add(lblSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, -1, 20));</span>
+
+<span class="nc" id="L142">        jPanel1.add(comboViajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 260, 22));</span>
+
+<span class="nc" id="L144">        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnVolver.png&quot;))); // NOI18N</span>
+<span class="nc" id="L145">        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L146">        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L148">                lblVolverMouseClicked(evt);</span>
+<span class="nc" id="L149">            }</span>
+        });
+<span class="nc" id="L151">        jPanel1.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 38, 30, 30));</span>
+
+<span class="nc" id="L153">        lblAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnGaleriaIzq.png&quot;))); // NOI18N</span>
+<span class="nc" id="L154">        lblAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L155">        lblAnterior.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L157">                lblAnteriorMouseClicked(evt);</span>
+<span class="nc" id="L158">            }</span>
+        });
+<span class="nc" id="L160">        jPanel1.add(lblAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));</span>
+
+<span class="nc" id="L162">        scroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L163">        scroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+
+<span class="nc" id="L165">        txtHorarios.setEditable(false);</span>
+<span class="nc" id="L166">        txtHorarios.setColumns(20);</span>
+<span class="nc" id="L167">        txtHorarios.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L168">        txtHorarios.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L169">        txtHorarios.setLineWrap(true);</span>
+<span class="nc" id="L170">        txtHorarios.setRows(5);</span>
+<span class="nc" id="L171">        txtHorarios.setWrapStyleWord(true);</span>
+<span class="nc" id="L172">        txtHorarios.setHighlighter(null);</span>
+<span class="nc" id="L173">        scroll.setViewportView(txtHorarios);</span>
+
+<span class="nc" id="L175">        jPanel1.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 202, 340, 20));</span>
+
+<span class="nc" id="L177">        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);</span>
+<span class="nc" id="L178">        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/Repercusiones.png&quot;))); // NOI18N</span>
+<span class="nc" id="L179">        jLabel3.setText(&quot;jLabel3&quot;);</span>
+<span class="nc" id="L180">        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);</span>
+<span class="nc" id="L181">        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L182">        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 182, 310, 470));</span>
+
+<span class="nc" id="L184">        lblGaleria.setText(&quot; &quot;);</span>
+<span class="nc" id="L185">        lblGaleria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));</span>
+<span class="nc" id="L186">        lblGaleria.setMinimumSize(new java.awt.Dimension(450, 280));</span>
+<span class="nc" id="L187">        lblGaleria.setPreferredSize(new java.awt.Dimension(450, 280));</span>
+<span class="nc" id="L188">        jPanel1.add(lblGaleria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));</span>
+
+<span class="nc" id="L190">        lblHorarios.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L191">        lblHorarios.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L192">        lblHorarios.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L193">        lblHorarios.setText(&quot;Horarios: &quot;);</span>
+<span class="nc" id="L194">        jPanel1.add(lblHorarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 100, 20));</span>
+
+<span class="nc" id="L196">        lblTelefono.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L197">        lblTelefono.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L198">        lblTelefono.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L199">        lblTelefono.setText(&quot;Teléfono: &quot;);</span>
+<span class="nc" id="L200">        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 100, 20));</span>
+
+<span class="nc" id="L202">        lblWeb.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L203">        lblWeb.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L204">        lblWeb.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L205">        lblWeb.setText(&quot;Página Web: &quot;);</span>
+<span class="nc" id="L206">        jPanel1.add(lblWeb, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 100, -1));</span>
+
+<span class="nc" id="L208">        scroll2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L209">        scroll2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+
+<span class="nc" id="L211">        txtTelefono.setEditable(false);</span>
+<span class="nc" id="L212">        txtTelefono.setColumns(20);</span>
+<span class="nc" id="L213">        txtTelefono.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L214">        txtTelefono.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L215">        txtTelefono.setLineWrap(true);</span>
+<span class="nc" id="L216">        txtTelefono.setRows(5);</span>
+<span class="nc" id="L217">        txtTelefono.setWrapStyleWord(true);</span>
+<span class="nc" id="L218">        txtTelefono.setHighlighter(null);</span>
+<span class="nc" id="L219">        scroll2.setViewportView(txtTelefono);</span>
+
+<span class="nc" id="L221">        jPanel1.add(scroll2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 232, 340, 20));</span>
+
+<span class="nc" id="L223">        lblPrecio1.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L224">        lblPrecio1.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L225">        lblPrecio1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L226">        lblPrecio1.setText(&quot;Precio: &quot;);</span>
+<span class="nc" id="L227">        jPanel1.add(lblPrecio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 100, 20));</span>
+
+<span class="nc" id="L229">        scroll5.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L230">        scroll5.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+
+<span class="nc" id="L232">        txtPrecio.setEditable(false);</span>
+<span class="nc" id="L233">        txtPrecio.setColumns(20);</span>
+<span class="nc" id="L234">        txtPrecio.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L235">        txtPrecio.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L236">        txtPrecio.setLineWrap(true);</span>
+<span class="nc" id="L237">        txtPrecio.setRows(5);</span>
+<span class="nc" id="L238">        txtPrecio.setWrapStyleWord(true);</span>
+<span class="nc" id="L239">        txtPrecio.setHighlighter(null);</span>
+<span class="nc" id="L240">        scroll5.setViewportView(txtPrecio);</span>
+
+<span class="nc" id="L242">        jPanel1.add(scroll5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 262, 340, 20));</span>
+
+<span class="nc" id="L244">        lblUbicacion.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 14)); // NOI18N</span>
+<span class="nc" id="L245">        lblUbicacion.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L246">        lblUbicacion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);</span>
+<span class="nc" id="L247">        lblUbicacion.setText(&quot;Ubicación: &quot;);</span>
+<span class="nc" id="L248">        jPanel1.add(lblUbicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 100, 20));</span>
+
+<span class="nc" id="L250">        scroll4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);</span>
+<span class="nc" id="L251">        scroll4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);</span>
+
+<span class="nc" id="L253">        txtUbicacion.setEditable(false);</span>
+<span class="nc" id="L254">        txtUbicacion.setColumns(20);</span>
+<span class="nc" id="L255">        txtUbicacion.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L256">        txtUbicacion.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L257">        txtUbicacion.setLineWrap(true);</span>
+<span class="nc" id="L258">        txtUbicacion.setRows(5);</span>
+<span class="nc" id="L259">        txtUbicacion.setWrapStyleWord(true);</span>
+<span class="nc" id="L260">        txtUbicacion.setHighlighter(null);</span>
+<span class="nc" id="L261">        scroll4.setViewportView(txtUbicacion);</span>
+
+<span class="nc" id="L263">        jPanel1.add(scroll4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 292, 340, 20));</span>
+
+<span class="nc" id="L265">        lblBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnPlus.png&quot;))); // NOI18N</span>
+<span class="nc" id="L266">        lblBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L267">        lblBoton.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L269">                lblBotonMouseClicked(evt);</span>
+<span class="nc" id="L270">            }</span>
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L272">                lblBotonMouseEntered(evt);</span>
+<span class="nc" id="L273">            }</span>
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L275">                lblBotonMouseExited(evt);</span>
+<span class="nc" id="L276">            }</span>
+        });
+<span class="nc" id="L278">        jPanel1.add(lblBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 37, -1, 30));</span>
+
+<span class="nc" id="L280">        lblpagina.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L281">        lblpagina.setForeground(new java.awt.Color(0, 51, 204));</span>
+<span class="nc" id="L282">        lblpagina.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L283">        lblpagina.setMaximumSize(new java.awt.Dimension(999, 999));</span>
+<span class="nc" id="L284">        lblpagina.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L286">                lblpaginaMouseClicked(evt);</span>
+<span class="nc" id="L287">            }</span>
+        });
+<span class="nc" id="L289">        jPanel1.add(lblpagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 318, 340, 20));</span>
+
+<span class="nc" id="L291">        lblVolver1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/btnHome.png&quot;))); // NOI18N</span>
+<span class="nc" id="L292">        lblVolver1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L293">        lblVolver1.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<span class="nc" id="L295">                lblVolver1MouseClicked(evt);</span>
+<span class="nc" id="L296">            }</span>
+        });
+<span class="nc" id="L298">        jPanel1.add(lblVolver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 38, 30, 30));</span>
+
+<span class="nc" id="L300">        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/descansoApp/imagenes/InformacionComercioActividad.png&quot;))); // NOI18N</span>
+<span class="nc" id="L301">        jPanel1.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));</span>
+
+<span class="nc" id="L303">        jScrollPane1.setViewportView(jPanel1);</span>
+
+<span class="nc" id="L305">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);</span>
+<span class="nc" id="L306">        this.setLayout(layout);</span>
+<span class="nc" id="L307">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L308">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L309">            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L311">        layout.setVerticalGroup(</span>
+<span class="nc" id="L312">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L313">            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+        );
+<span class="nc" id="L315">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+<span class="nc" id="L318">        padre.remove(this);</span>
+<span class="nc" id="L319">        padre.add(new pnlDondeQue(modelo,ciudad , padre, cA.getTipo()));</span>
+<span class="nc" id="L320">        padre.pack();</span>
+<span class="nc" id="L321">    }//GEN-LAST:event_lblVolverMouseClicked</span>
+
+    private void lblAnteriorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAnteriorMouseClicked
+<span class="nc bnc" id="L324" title="All 2 branches missed.">        if (contador == 0) {</span>
+<span class="nc" id="L325">            contador = listaImagenes.size() - 1;</span>
+        } else {
+<span class="nc" id="L327">            contador--;</span>
+        }
+<span class="nc" id="L329">        lblGaleria.setIcon(listaImagenes.get(contador));</span>
+<span class="nc" id="L330">    }//GEN-LAST:event_lblAnteriorMouseClicked</span>
+
+    private void lblSiguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSiguienteMouseClicked
+<span class="nc bnc" id="L333" title="All 2 branches missed.">        if (contador == listaImagenes.size() - 1) {</span>
+<span class="nc" id="L334">            contador = 0;</span>
+        } else {
+<span class="nc" id="L336">            contador++;</span>
+        }
+
+<span class="nc" id="L339">        lblGaleria.setIcon(listaImagenes.get(contador));</span>
+<span class="nc" id="L340">    }//GEN-LAST:event_lblSiguienteMouseClicked</span>
+
+    private void lblBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseClicked
+<span class="nc" id="L343">        PopUp p = new PopUp();</span>
+<span class="nc" id="L344">        p.add(new pnlEvento(modelo, (Viaje) comboViajes.getSelectedItem(), ciudad, null, p));</span>
+<span class="nc" id="L345">        p.pack();</span>
+<span class="nc" id="L346">        p.setLocationRelativeTo(null);</span>
+<span class="nc" id="L347">        p.setVisible(true);</span>
+<span class="nc" id="L348">    }//GEN-LAST:event_lblBotonMouseClicked</span>
+
+    private void lblBotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseEntered
+        
+<span class="nc" id="L352">    }//GEN-LAST:event_lblBotonMouseEntered</span>
+
+    private void lblBotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseExited
+       
+<span class="nc" id="L356">    }//GEN-LAST:event_lblBotonMouseExited</span>
+
+    private void lblpaginaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblpaginaMouseClicked
+        try {
+<span class="nc" id="L360">            URI ruta= new URI(cA.getWeb());</span>
+<span class="nc bnc" id="L361" title="All 2 branches missed.">            if(java.awt.Desktop.isDesktopSupported()){</span>
+                try{
+<span class="nc" id="L363">                    Desktop dk = Desktop.getDesktop();</span>
+
+<span class="nc" id="L365">                    dk.browse(ruta);</span>
+<span class="nc" id="L366">                }catch(Exception e){</span>
+<span class="nc" id="L367">                    System.out.println(&quot;Error al abrir URL: &quot;+e.getMessage());</span>
+<span class="nc" id="L368">                }</span>
+            }
+<span class="nc" id="L370">        } catch (URISyntaxException ex) {</span>
+<span class="nc" id="L371">            Logger.getLogger(pnlInformacionComercioActividad.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L372">        }</span>
+<span class="nc" id="L373">    }//GEN-LAST:event_lblpaginaMouseClicked</span>
+
+    private void lblVolver1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolver1MouseClicked
+<span class="nc" id="L376">        padre.remove(this);</span>
+<span class="nc" id="L377">        padre.add(new pnlInicio(modelo, padre));</span>
+<span class="nc" id="L378">        padre.pack();</span>
+<span class="nc" id="L379">    }//GEN-LAST:event_lblVolver1MouseClicked</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox comboViajes;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAnterior;
+    private javax.swing.JLabel lblBoton;
+    private javax.swing.JLabel lblFondo;
+    private javax.swing.JLabel lblGaleria;
+    private javax.swing.JLabel lblHorarios;
+    private javax.swing.JLabel lblNombreEst;
+    private javax.swing.JLabel lblPrecio1;
+    private javax.swing.JLabel lblRepercusiones;
+    private javax.swing.JLabel lblSiguiente;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblUbicacion;
+    private javax.swing.JLabel lblVolver;
+    private javax.swing.JLabel lblVolver1;
+    private javax.swing.JLabel lblWeb;
+    private javax.swing.JLabel lblpagina;
+    private javax.swing.JScrollPane scroll;
+    private javax.swing.JScrollPane scroll1;
+    private javax.swing.JScrollPane scroll2;
+    private javax.swing.JScrollPane scroll4;
+    private javax.swing.JScrollPane scroll5;
+    private javax.swing.JTextArea txtHorarios;
+    private javax.swing.JTextArea txtIntroduccion;
+    private javax.swing.JTextArea txtPrecio;
+    private javax.swing.JTextArea txtTelefono;
+    private javax.swing.JTextArea txtUbicacion;
+    // End of variables declaration//GEN-END:variables
+
+    private void cargar() {
+<span class="nc" id="L416">        lblNombreEst.setText(cA.getNombre());</span>
+<span class="nc" id="L417">        txtIntroduccion.setText(cA.getDetalles());</span>
+<span class="nc" id="L418">        txtHorarios.setText(cA.getHorario());</span>
+<span class="nc" id="L419">        txtTelefono.setText(cA.getTelefono());</span>
+<span class="nc" id="L420">        txtPrecio.setText(cA.getPrecio());</span>
+<span class="nc" id="L421">        txtUbicacion.setText(cA.getUbicacion());</span>
+<span class="nc" id="L422">        lblpagina.setText(cA.getWeb());</span>
+        
+        
+        
+        
+<span class="nc" id="L427">        txtIntroduccion.setOpaque(false);</span>
+<span class="nc" id="L428">        txtHorarios.setOpaque(false);</span>
+<span class="nc" id="L429">        txtTelefono.setOpaque(false);</span>
+<span class="nc" id="L430">        txtPrecio.setOpaque(false);</span>
+<span class="nc" id="L431">        txtUbicacion.setOpaque(false);</span>
+        
+        
+<span class="nc" id="L434">        scroll.setOpaque(false);</span>
+<span class="nc" id="L435">        scroll.getViewport().setOpaque(false);</span>
+<span class="nc" id="L436">        scroll.setBorder(null);</span>
+<span class="nc" id="L437">        scroll1.setOpaque(false);</span>
+<span class="nc" id="L438">        scroll1.getViewport().setOpaque(false);</span>
+<span class="nc" id="L439">        scroll1.setBorder(null);</span>
+<span class="nc" id="L440">        scroll2.setOpaque(false);</span>
+<span class="nc" id="L441">        scroll2.getViewport().setOpaque(false);</span>
+<span class="nc" id="L442">        scroll2.setBorder(null);</span>
+        
+<span class="nc" id="L444">        scroll4.setOpaque(false);</span>
+<span class="nc" id="L445">        scroll4.getViewport().setOpaque(false);</span>
+<span class="nc" id="L446">        scroll4.setBorder(null);</span>
+<span class="nc" id="L447">        scroll5.setOpaque(false);</span>
+<span class="nc" id="L448">        scroll5.getViewport().setOpaque(false);</span>
+<span class="nc" id="L449">        scroll5.setBorder(null);</span>
+        
+        
+        
+        
+        
+<span class="nc" id="L455">    }</span>
+    
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
