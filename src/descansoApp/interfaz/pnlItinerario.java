@@ -23,7 +23,7 @@ public class pnlItinerario extends javax.swing.JPanel {
         scroll.setOpaque(false);
         scroll.getViewport().setOpaque(false);
         scroll.setBorder(null);
-
+        
         modelo = unModelo;
         viaje = unViaje;
         miVentana = unContenedor;
@@ -41,13 +41,14 @@ public class pnlItinerario extends javax.swing.JPanel {
         scroll = new javax.swing.JScrollPane();
         pnlResultados = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
+        lblAgregarEvento = new javax.swing.JLabel();
         lblNoHay = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnVolver.png"))); // NOI18N
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnVolver.png"))); // NOI18N
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblVolverMouseClicked(evt);
@@ -77,12 +78,27 @@ public class pnlItinerario extends javax.swing.JPanel {
         lblNombre.setText("Nombre del Viaje");
         add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 19, 410, 30));
 
+        lblAgregarEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregar.png"))); // NOI18N
+        lblAgregarEvento.setText("jLabel1");
+        lblAgregarEvento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAgregarEventoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAgregarEventoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAgregarEventoMouseExited(evt);
+            }
+        });
+        add(lblAgregarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 130, 40));
+
         lblNoHay.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblNoHay.setForeground(new java.awt.Color(255, 255, 255));
         lblNoHay.setText("No hay eventos guardados!");
         add(lblNoHay, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
 
-        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Itinerario.png"))); // NOI18N
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/Itinerario.png"))); // NOI18N
         add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -92,14 +108,28 @@ public class pnlItinerario extends javax.swing.JPanel {
         miVentana.pack();
     }//GEN-LAST:event_lblVolverMouseClicked
 
+    private void lblAgregarEventoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarEventoMouseEntered
+        lblAgregarEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregarONN.png")));
+    }//GEN-LAST:event_lblAgregarEventoMouseEntered
+
+    private void lblAgregarEventoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarEventoMouseExited
+        lblAgregarEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregar.png")));
+    }//GEN-LAST:event_lblAgregarEventoMouseExited
+
+    private void lblAgregarEventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarEventoMouseClicked
+        miVentana.remove(this);
+        miVentana.add(new pnlEvento(modelo, viaje, null, null, miVentana));
+        miVentana.pack();        
+    }//GEN-LAST:event_lblAgregarEventoMouseClicked
+
     public void cargarItinerario() {
-         int cantResultados = 0;
+        int cantResultados = 0;
         pnlResultados.removeAll();
         pnlResultados.repaint();
 
         ArrayList<Evento> resultados = viaje.getItinerario();
         Collections.sort(resultados);
-
+        cantResultados = resultados.size();
        
         if (cantResultados > 0) {
             lblNoHay.setVisible(false);
@@ -145,8 +175,10 @@ public class pnlItinerario extends javax.swing.JPanel {
         
         return false;
     }
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblAgregarEvento;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblNoHay;
     private javax.swing.JLabel lblNombre;

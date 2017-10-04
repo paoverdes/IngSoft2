@@ -252,7 +252,9 @@ public class pnlEvento extends javax.swing.JPanel {
 
                         if (modEvento == null) {
                             viaje.agregarEvento(evento);
-                            miVentana.dispose();
+                            miVentana.remove(this);
+                            miVentana.add(new pnlItinerario(modelo, viaje, miVentana));
+                            miVentana.pack();
                         } else {
                             miVentana.remove(this);
                             miVentana.add(new pnlItinerario(modelo, viaje, miVentana));

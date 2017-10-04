@@ -30,7 +30,10 @@ public class pnlInformacionComercioActividad extends javax.swing.JPanel {
         ciudad = unaCiudad;
 
         listaImagenes = cA.getImagenes();
-        lblGaleria.setIcon(listaImagenes.get(0));
+        if(listaImagenes.size() > 0){
+            lblGaleria.setIcon(listaImagenes.get(0));
+        }
+        
 
         if (!modelo.getListaViajes().isEmpty()) {
             Iterator<Viaje> itViaje = modelo.getListaViajes().iterator();
