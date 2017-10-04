@@ -15,6 +15,7 @@ public class pnlInicio extends javax.swing.JPanel {
         initComponents();
         modelo = unModelo;
         padre = miPadre;
+        lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViaje.png")));
     }
 
     @SuppressWarnings("unchecked")
@@ -31,7 +32,6 @@ public class pnlInicio extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(840, 500));
         setLayout(null);
 
-        lblNuevoViaje.setText("Nuevo Viaje");
         lblNuevoViaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblNuevoViaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -45,9 +45,9 @@ public class pnlInicio extends javax.swing.JPanel {
             }
         });
         add(lblNuevoViaje);
-        lblNuevoViaje.setBounds(60, 100, 60, 40);
+        lblNuevoViaje.setBounds(110, 215, 130, 40);
 
-        lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajes.png"))); // NOI18N
+        lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnMisViajes.png"))); // NOI18N
         lblMisViajes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblMisViajes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -63,7 +63,7 @@ public class pnlInicio extends javax.swing.JPanel {
         add(lblMisViajes);
         lblMisViajes.setBounds(110, 280, 132, 40);
 
-        lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Lupa.png"))); // NOI18N
+        lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/Lupa.png"))); // NOI18N
         lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lblBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,11 +83,11 @@ public class pnlInicio extends javax.swing.JPanel {
         add(txtBuscador);
         txtBuscador.setBounds(370, 290, 340, 22);
 
-        lblBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Buscador.png"))); // NOI18N
+        lblBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/Buscador.png"))); // NOI18N
         add(lblBuscador);
         lblBuscador.setBounds(340, 190, 440, 160);
 
-        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/FondoInicio.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/FondoInicio.png"))); // NOI18N
         lblImagen.setPreferredSize(new java.awt.Dimension(800, 450));
         lblImagen.setVerifyInputWhenFocusTarget(false);
         add(lblImagen);
