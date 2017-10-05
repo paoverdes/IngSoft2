@@ -220,6 +220,8 @@ public class pnlEvento extends javax.swing.JPanel {
             } else {
                 evento = modEvento;
             }
+            
+            
 
             evento.setNombre(txtNombre.getText());
             evento.setUbicacion(txtUbicacion.getText());
@@ -269,7 +271,7 @@ public class pnlEvento extends javax.swing.JPanel {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(miVentana, viaje, TOOL_TIP_TEXT_KEY, WIDTH);
+            JOptionPane.showMessageDialog(this, "Debe completar todos los campos","Eror", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_lblGuardarMouseClicked
 
