@@ -39,4 +39,8 @@ public class Sistema  implements Serializable{
     public void agregarCiudad(Ciudad unaCiudad){
         listaCiudades.add(unaCiudad);
     }
+    
+    public boolean perteneceCiudad(Ciudad unaCiudad){
+        return listaCiudades.contains(unaCiudad);
+    }
 }

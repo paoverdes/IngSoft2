@@ -105,6 +105,11 @@ public class Ciudad implements Serializable {
         return valido;
     }
     
+   @Override
+    public String toString(){
+        return this.getNombre()+" - Informacion general: "+this.getInfoGral();
+    }
+    
     public void agregarImagen(String ruta){
         imagenes.add(new javax.swing.ImageIcon(getClass().getResource(ruta)));
     }
@@ -112,4 +117,7 @@ public class Ciudad implements Serializable {
     public ArrayList<ImageIcon> getImagenes() {
         return imagenes;
     }
+    
+    
+    
 }

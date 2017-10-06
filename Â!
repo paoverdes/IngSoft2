@@ -1,0 +1,10 @@
+correccion error al seleccionar lugar donde dormir
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch CorreccionSeleccionDondeDormir
+# Changes to be committed:
+#	modified:   Sistema
+#	modified:   src/DescansoApp/interfaz/pnlInformacionComercioActividad.java
+#	modified:   src/descansoApp/interfaz/pnlInformacionComercioActividad.java
+#

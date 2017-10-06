@@ -84,7 +84,7 @@ public class Informacion {
                 parte = 2;
                 break;
             case "#rutas":
-                parte = 0;
+                parte = 3;
                 break;
         }
 
@@ -181,7 +181,7 @@ public class Informacion {
                 parte = 8;
                 break;
             case "#rutas":
-                parte = 0;
+                parte = 9;
                 break;
         }
 
