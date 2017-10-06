@@ -9,16 +9,19 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import descansoApp.dominio.ComercioActividad;
 
 public class pnlCiudades extends javax.swing.JPanel {
     private Sistema modelo;
     private JFrame padre;
+   private Ciudad unaCiudad;
     
     public pnlCiudades(Sistema unModelo, JFrame miPadre) {
         initComponents();        
         modelo = unModelo;
         padre = miPadre;
-        cargarLista();        
+        cargarLista();  
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -30,7 +33,7 @@ public class pnlCiudades extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         lstCiudades = new javax.swing.JList<>();
         lblAgregarCiudad = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblEliminarCiudad = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(840, 500));
 
@@ -48,17 +51,17 @@ public class pnlCiudades extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(lstCiudades);
 
-        lblAgregarCiudad.setText("Agregar Ciudad");
+        lblAgregarCiudad.setText("Agregar ciudad");
         lblAgregarCiudad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAgregarCiudadMouseClicked(evt);
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Eliminar.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblEliminarCiudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/Eliminar.png"))); // NOI18N
+        lblEliminarCiudad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lblEliminarCiudadMouseClicked(evt);
             }
         });
 
@@ -73,14 +76,15 @@ public class pnlCiudades extends javax.swing.JPanel {
                 .addComponent(lblTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 38, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(0, 8, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 763, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(26, 26, 26)
-                        .addComponent(lblAgregarCiudad)))
-                .addGap(39, 39, 39))
+                        .addGap(651, 651, 651)
+                        .addComponent(lblEliminarCiudad)
+                        .addGap(56, 56, 56)
+                        .addComponent(lblAgregarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,13 +93,13 @@ public class pnlCiudades extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblInicio)
                     .addComponent(lblTitulo))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAgregarCiudad)
-                    .addComponent(jLabel1))
-                .addGap(22, 22, 22))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblEliminarCiudad)
+                    .addComponent(lblAgregarCiudad))
+                .addGap(20, 20, 20))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -111,7 +115,7 @@ public class pnlCiudades extends javax.swing.JPanel {
         padre.pack();
     }//GEN-LAST:event_lblAgregarCiudadMouseClicked
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lblEliminarCiudadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblEliminarCiudadMouseClicked
         if(!lstCiudades.isSelectionEmpty()){
             int seleccion = lstCiudades.getSelectedIndex();
             modelo.getListaCiudades().remove(seleccion);
@@ -119,7 +123,7 @@ public class pnlCiudades extends javax.swing.JPanel {
         else{
             JOptionPane.showMessageDialog(this, "Debe seleccionar una ciudad", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lblEliminarCiudadMouseClicked
     private void cargarLista (){
         ArrayList <Ciudad> ciudades = modelo.getListaCiudades();
         DefaultListModel listaCiudades = new DefaultListModel();
@@ -128,11 +132,29 @@ public class pnlCiudades extends javax.swing.JPanel {
         }
         lstCiudades.setModel(listaCiudades);
     }
+    
+    // recibe una ciudad seleccionada, la encuentra en la lista y muestra los lugares para comer
+    /*private void cargarLstCA(Ciudad unaCiudad){
+         ArrayList<ComercioActividad> listaCA= new ArrayList<ComercioActividad>();
+         DefaultListModel lstCA = new DefaultListModel();
+        for (int i = 0; i < modelo.getListaCiudades().size(); i++){
+            Ciudad laCiudad= modelo.getListaCiudades().get(i);
+            if(laCiudad.equals(unaCiudad)){
+               lstCA.addElement(laCiudad.getEstGastronomicos());
+               
+            
+            }
+        }
+         lstCiudades.setModel(lstCA);
+        
+    }*/
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAgregarCiudad;
+    private javax.swing.JLabel lblEliminarCiudad;
     private javax.swing.JLabel lblInicio;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JList<String> lstCiudades;
