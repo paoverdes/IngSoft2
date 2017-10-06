@@ -119,19 +119,30 @@ public class pnlNuevoViaje extends javax.swing.JPanel {
 
     private void lblBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBotonMouseClicked
         if (txtNombre.getText().length() > 0 && dChooserFechaI != null && dChooserFechaF != null) {
-            Viaje viaje;
+            Viaje viaje=null;
 
-            if (modViaje == null) {
+            if (modViaje != null) {
+                viaje =modViaje;
+                for (int i = 0; i < modelo.getListaViajes().size(); i++) {
+                    Viaje viajeMomento= modelo.getListaViajes().get(i);
+                    if(txtNombre.getText().equals(viajeMomento.getNombre())){
+                        JOptionPane.showMessageDialog(null, "El nombre de ese viaje ya existe", "Error", JOptionPane.ERROR_MESSAGE);
+                         
+                        
+                   }
+                }    
+               
+            } 
+            
+            else{
+                
                 viaje = new Viaje();
-            } else {
-                viaje = modViaje;
+                viaje.setNombre(txtNombre.getText());
+                Calendar c = dChooserFechaI.getCalendar();
             }
-
-            viaje.setNombre(txtNombre.getText());
-            Calendar c = dChooserFechaI.getCalendar();
-
+            
             try {
-                viaje.setFechaI(c);
+                //viaje.setFechaI(c);
                 viaje.setFechaF(dChooserFechaI.getCalendar(), dChooserFechaF.getCalendar());
 
                 if (modViaje == null) {
@@ -141,7 +152,7 @@ public class pnlNuevoViaje extends javax.swing.JPanel {
                 miVentana.dispose();
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "Debe completar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "El nombre de ese viaje ya existe", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debe completar todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
