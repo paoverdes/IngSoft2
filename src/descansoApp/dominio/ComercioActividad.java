@@ -137,4 +137,9 @@ public class ComercioActividad implements Serializable, Comparable<ComercioActiv
     public int compareTo(ComercioActividad cA){
         return nombre.compareTo(cA.getNombre());
     }
+    
+    @Override
+    public String toString(){
+        return this.getNombre() +" - Detalles: "+this.getDetalles();
+    }
 }
