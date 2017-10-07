@@ -4,6 +4,7 @@ import descansoApp.dominio.Sistema;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+
 public class pnlAgregarCiudad extends javax.swing.JPanel {
 
     private Sistema modelo;
@@ -29,7 +30,10 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
         lblInformacionGeneral = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         lblInicio = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblCargarImagenes = new javax.swing.JLabel();
+        lblDondeComer = new javax.swing.JLabel();
+        lblDondeDormir = new javax.swing.JLabel();
+        lblQueHacer = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(840, 500));
 
@@ -69,7 +73,18 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Cargar Imagenes");
+        lblCargarImagenes.setText("Cargar Imagenes");
+
+        lblDondeComer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnDondeComer.png"))); // NOI18N
+        lblDondeComer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblDondeComerMouseClicked(evt);
+            }
+        });
+
+        lblDondeDormir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnDondeDormir.png"))); // NOI18N
+
+        lblQueHacer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnQueHacer.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,18 +102,29 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDescripcion)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblInformacionGeneral)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAgregarCiudad, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lblInformacionGeneral)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(lblDondeComer)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(47, 47, 47)
+                                        .addComponent(lblDondeDormir)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblQueHacer)
+                                        .addGap(95, 95, 95)
+                                        .addComponent(lblAgregarCiudad))))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 728, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
+                            .addComponent(lblCargarImagenes)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblInicio)
                         .addGap(238, 238, 238)
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,9 +146,14 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addComponent(lblAgregarCiudad)
+                .addComponent(lblCargarImagenes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAgregarCiudad)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(lblDondeDormir)
+                        .addComponent(lblDondeComer)
+                        .addComponent(lblQueHacer)))
                 .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -152,7 +183,8 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
         }
         if (seAgrega){
             modelo.agregarCiudad(nuevaCiudad);
-            JOptionPane.showMessageDialog(this, "Ciudad ingresada con éxito", "INFO", JOptionPane.INFORMATION_MESSAGE);            
+            JOptionPane.showMessageDialog(this, "Ciudad ingresada con éxito", "INFO", JOptionPane.INFORMATION_MESSAGE);     
+            //nuevaCiudad.agregarComercioActividad(TipoCA.otros, nuevo);
         }
     }//GEN-LAST:event_lblAgregarCiudadMouseClicked
 
@@ -162,19 +194,30 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
         padre.pack();
     }//GEN-LAST:event_lblInicioMouseClicked
 
+    private void lblDondeComerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeComerMouseClicked
+        
+        
+        padre.remove(this);
+        padre.add(new pnlAgregarDondeComer(modelo, padre));
+        padre.pack();
+    }//GEN-LAST:event_lblDondeComerMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea DescripcionCiudad;
     private javax.swing.JTextArea InfoCiudad;
     private javax.swing.JTextField NombreCiudad;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAgregarCiudad;
+    private javax.swing.JLabel lblCargarImagenes;
     private javax.swing.JLabel lblCiudad;
     private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblDondeComer;
+    private javax.swing.JLabel lblDondeDormir;
     private javax.swing.JLabel lblInformacionGeneral;
     private javax.swing.JLabel lblInicio;
+    private javax.swing.JLabel lblQueHacer;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }
