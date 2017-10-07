@@ -196,10 +196,7 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
 
     private void lblDondeComerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeComerMouseClicked
         
-        
-        padre.remove(this);
-        padre.add(new pnlAgregarDondeComer(modelo, padre));
-        padre.pack();
+       
     }//GEN-LAST:event_lblDondeComerMouseClicked
 
 
