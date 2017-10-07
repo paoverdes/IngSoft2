@@ -19,17 +19,21 @@ import descansoApp.herramientas.TipoCA;
  *
  * @author Daniela
  */
-public class pnlAgregarDondeComer extends javax.swing.JPanel {
+public class pnlAgregarComercioActividad extends javax.swing.JPanel {
 
      private Sistema modelo;
      private JFrame padre;
-     Ciudad ciudad;
+     private Ciudad ciudad;
+     private TipoCA tipo;
      
      
-    public pnlAgregarDondeComer(Sistema unModelo, JFrame miPadre) {
+    public pnlAgregarComercioActividad(Sistema unModelo, JFrame miPadre, Ciudad unaCiudad, TipoCA unTipo) {
         initComponents();
        modelo= unModelo;
        padre= miPadre;
+       ciudad= unaCiudad;
+       tipo= unTipo;
+       lblTitulo.setText(tipo.toString());
     }
 
     /**
@@ -224,16 +228,16 @@ public class pnlAgregarDondeComer extends javax.swing.JPanel {
          nuevo.setPrecio(txtPrecio.getText());
          nuevo.setTelefono(txtTelefono.getText());
          nuevo.setUbicacion(txtUbicacion.getText());
-         nuevo.setTipo(elTipo);
+         nuevo.setWeb(txtWeb.getText());
+         nuevo.setTipo(tipo);
          boolean seGuarda= true;
          if(nuevo.getNombre().equals("") || nuevo.getDetalles().equals("") || nuevo.getHorario().equals("") || nuevo.getCategoria().equals("")|| nuevo.getUbicacion().equals("") || nuevo.getTelefono().equals("")|| nuevo.getWeb().equals("") ||nuevo.getPrecio().equals("")){
               JOptionPane.showMessageDialog(this, "Hay campos sin completar", "Error", JOptionPane.ERROR_MESSAGE);
               seGuarda= false;
          }
-         else{
-              Ciudad unaCiudad= new Ciudad();
-              unaCiudad.agregarComercioActividad(elTipo, nuevo);
-              
+         else{             
+              ciudad.agregarComercioActividad(elTipo, nuevo);  
+              JOptionPane.showMessageDialog(this, "Agregado", "INFO", JOptionPane.ERROR_MESSAGE);
          }
          
          
