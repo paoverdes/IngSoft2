@@ -11,6 +11,7 @@ public class pnlResultadoBusqueda extends javax.swing.JPanel {
 
     private Sistema modelo;
     private JFrame padre;
+    private String palabraBusqueda;
 
     public pnlResultadoBusqueda(Sistema unModelo, JFrame unPadre, String palabra) {
         initComponents();
@@ -22,6 +23,7 @@ public class pnlResultadoBusqueda extends javax.swing.JPanel {
 
         modelo = unModelo;
         padre = unPadre;
+        palabraBusqueda = palabra;
 
         busqueda(palabra);
     }
@@ -145,7 +147,7 @@ public class pnlResultadoBusqueda extends javax.swing.JPanel {
             lblNoHay.setVisible(false);
             
             for (int i = 0; i < cantResultados; i++) {
-                pResultado pr = new pResultado(modelo, resultados.get(i), padre, this);
+                pResultado pr = new pResultado(modelo, resultados.get(i), padre, this, palabraBusqueda);
                 
                 pnlResultados.setLayout(new java.awt.BorderLayout());
                 pnlResultados.add(pr);

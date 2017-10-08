@@ -13,8 +13,9 @@ public class pResultadoDondeQue extends javax.swing.JPanel {
     private JPanel padre;
     private JFrame ventana;
     private descansoApp.dominio.Ciudad ciudad;
+    private String palabraBusqueda;
    
-    public pResultadoDondeQue(Sistema unModelo, ComercioActividad unCA,  JFrame unaVentana, JPanel unPadre, descansoApp.dominio.Ciudad unaCiudad) {
+    public pResultadoDondeQue(Sistema unModelo, ComercioActividad unCA,  JFrame unaVentana, JPanel unPadre, descansoApp.dominio.Ciudad unaCiudad, String palabra) {
         initComponents();
        
         txtDes.setOpaque(false);
@@ -28,7 +29,7 @@ public class pResultadoDondeQue extends javax.swing.JPanel {
         padre = unPadre;
         ventana = unaVentana;
         ciudad = unaCiudad;
-        
+        palabraBusqueda = palabra;
         lblNombre.setText(unCA.getNombre());
         txtDes.setText(unCA.getDetalles());
     }
@@ -85,7 +86,7 @@ public class pResultadoDondeQue extends javax.swing.JPanel {
 
     private void lblNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreMouseClicked
         ventana.remove(padre);
-        ventana.add(new pnlInformacionComercioActividad(modelo, cA, ventana,ciudad));
+        ventana.add(new pnlInformacionComercioActividad(modelo, cA, ventana,ciudad, palabraBusqueda));
         ventana.pack();
     }//GEN-LAST:event_lblNombreMouseClicked
 

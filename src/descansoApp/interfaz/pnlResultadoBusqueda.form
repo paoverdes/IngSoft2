@@ -24,7 +24,7 @@
           <Image iconType="3" name="/sobrinoPatrone/imagenes/btnHome.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
       <Events>
@@ -42,7 +42,7 @@
           <Image iconType="3" name="/sobrinoPatrone/imagenes/Lupa.png"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
       <Events>

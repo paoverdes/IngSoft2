@@ -7,13 +7,14 @@ public class pnlMapas extends javax.swing.JPanel {
     private Sistema modelo;
     private descansoApp.dominio.Ciudad ciudad;
     private JFrame padre;
+    private String palabraBusqueda;
     
-    public pnlMapas(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre)  {
+    public pnlMapas(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre, String palabra)  {
         initComponents();
         modelo = unModelo;
         ciudad = unaCiudad;
         padre = unPadre;
-        
+        palabraBusqueda = palabra;
         lblTitulo.setText("Mapa de " + ciudad.getNombre());
     }
 
@@ -52,7 +53,7 @@ public class pnlMapas extends javax.swing.JPanel {
 
     private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
         padre.remove(this);
-        padre.add(new pnlInformacionCiudad(modelo, ciudad, padre));
+        padre.add(new pnlInformacionCiudad(modelo, ciudad, padre, palabraBusqueda));
         padre.pack();
     }//GEN-LAST:event_lblVolverMouseClicked
 

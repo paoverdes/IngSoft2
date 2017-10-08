@@ -10,14 +10,15 @@ public class pResultado extends javax.swing.JPanel {
     private JPanel padre;
     private Sistema modelo;
     private descansoApp.dominio.Ciudad ciudad;
+    private String palabraBusqueda;
     
-    public pResultado(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unaVentana, JPanel unPadre) {
+    public pResultado(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unaVentana, JPanel unPadre, String palabra) {
         initComponents();
         modelo = unModelo;
         ciudad = unaCiudad;
         ventana = unaVentana;
         padre = unPadre;
-        
+        palabraBusqueda = palabra;
         lblDes.setOpaque(false);
         scroll.setOpaque(false);
         scroll.getViewport().setOpaque(false);
@@ -81,7 +82,7 @@ public class pResultado extends javax.swing.JPanel {
 
     private void lblNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreMouseClicked
         ventana.remove(padre);
-        ventana.add(new pnlInformacionCiudad(modelo, ciudad, ventana));
+        ventana.add(new pnlInformacionCiudad(modelo, ciudad, ventana, palabraBusqueda));
         ventana.pack();
     }//GEN-LAST:event_lblNombreMouseClicked
 

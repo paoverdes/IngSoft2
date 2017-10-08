@@ -13,14 +13,15 @@ public class pnlInformacionCiudad extends javax.swing.JPanel {
     private JFrame padre;
     int contador = 0;
     private ArrayList<ImageIcon> listaImagenes;
+    private String palabraBusqueda;
 
-    public pnlInformacionCiudad(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre) {
+    public pnlInformacionCiudad(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre, String palabra) {
         initComponents();
         modelo = unModelo;
         ciudad = unaCiudad;
         padre = unPadre;
         listaImagenes = unaCiudad.getImagenes();
-        
+        palabraBusqueda = palabra;
         if (listaImagenes.size() > 0){
             lblGaleria.setIcon(listaImagenes.get(0));
         }          
@@ -44,7 +45,7 @@ public class pnlInformacionCiudad extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         pnl = new javax.swing.JPanel();
-        lblVolver = new javax.swing.JLabel();
+        lblInicio = new javax.swing.JLabel();
         lblNombreCiudad = new javax.swing.JLabel();
         lblDondeDorimir = new javax.swing.JLabel();
         lblDondeComer = new javax.swing.JLabel();
@@ -62,24 +63,25 @@ public class pnlInformacionCiudad extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
+        lblVolver = new javax.swing.JLabel();
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         pnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnHome.png"))); // NOI18N
-        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnHome.png"))); // NOI18N
+        lblInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblVolverMouseClicked(evt);
+                lblInicioMouseClicked(evt);
             }
         });
-        pnl.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 38, 30, 30));
+        pnl.add(lblInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 30, 30));
 
         lblNombreCiudad.setFont(new java.awt.Font("Arial", 0, 26)); // NOI18N
         lblNombreCiudad.setForeground(new java.awt.Color(51, 51, 51));
         lblNombreCiudad.setText("Nombre de la Ciudad");
-        pnl.add(lblNombreCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 36, -1, -1));
+        pnl.add(lblNombreCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         lblDondeDorimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnDondeDormir.png"))); // NOI18N
         lblDondeDorimir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -221,6 +223,15 @@ public class pnlInformacionCiudad extends javax.swing.JPanel {
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/InformacionCiudad.png"))); // NOI18N
         pnl.add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        lblVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnVolver.png"))); // NOI18N
+        lblVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lblVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblVolverMouseClicked(evt);
+            }
+        });
+        pnl.add(lblVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 30, 30));
+
         jScrollPane1.setViewportView(pnl);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -282,25 +293,31 @@ public class pnlInformacionCiudad extends javax.swing.JPanel {
 
     private void lblDondeDorimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeDorimirMouseClicked
         padre.remove(this);
-        padre.add(new pnlDondeQue(modelo, ciudad, padre, alojamiento));
+        padre.add(new pnlDondeQue(modelo, ciudad, padre, alojamiento, palabraBusqueda));
         padre.pack();
     }//GEN-LAST:event_lblDondeDorimirMouseClicked
 
     private void lblDondeComerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDondeComerMouseClicked
         padre.remove(this);
-        padre.add(new pnlDondeQue(modelo, ciudad, padre, estGastronomico));
+        padre.add(new pnlDondeQue(modelo, ciudad, padre, estGastronomico, palabraBusqueda));
         padre.pack();
     }//GEN-LAST:event_lblDondeComerMouseClicked
 
     private void lblQueHacerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQueHacerMouseClicked
         padre.remove(this);
-        padre.add(new pnlDondeQue(modelo, ciudad, padre, actividad));
+        padre.add(new pnlDondeQue(modelo, ciudad, padre, actividad, palabraBusqueda));
         padre.pack();
     }//GEN-LAST:event_lblQueHacerMouseClicked
 
-    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+    private void lblInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblInicioMouseClicked
         padre.remove(this);
         padre.add(new pnlInicio(modelo, padre));
+        padre.pack();
+    }//GEN-LAST:event_lblInicioMouseClicked
+
+    private void lblVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblVolverMouseClicked
+        padre.remove(this);
+        padre.add(new pnlResultadoBusqueda(modelo, padre , palabraBusqueda));        
         padre.pack();
     }//GEN-LAST:event_lblVolverMouseClicked
 
@@ -320,6 +337,7 @@ public class pnlInformacionCiudad extends javax.swing.JPanel {
     private javax.swing.JLabel lblDondeDorimir;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblGaleria;
+    private javax.swing.JLabel lblInicio;
     private javax.swing.JLabel lblNombreCiudad;
     private javax.swing.JLabel lblQueHacer;
     private javax.swing.JLabel lblRepercusiones;
