@@ -1,4 +1,4 @@
-package DescansoApp.dominio;
+package descansoApp.dominio;
 
 import descansoApp.dominio.Evento;
 import descansoApp.dominio.Viaje;

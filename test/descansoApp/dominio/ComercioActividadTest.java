@@ -1,4 +1,4 @@
-package DescansoApp.dominio;
+package descansoApp.dominio;
 
 import descansoApp.dominio.ComercioActividad;
 import descansoApp.herramientas.TipoCA;

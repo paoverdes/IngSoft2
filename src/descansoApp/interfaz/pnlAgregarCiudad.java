@@ -41,6 +41,12 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAgregarCiudadMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAgregarCiudadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAgregarCiudadMouseExited(evt);
+            }
         });
 
         NombreCiudad.addActionListener(new java.awt.event.ActionListener() {
@@ -109,10 +115,7 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
                                             .addComponent(lblInformacionGeneral)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(lblCargarImagenes)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(603, 603, 603)
-                                            .addComponent(lblAgregarCiudad)))))))
+                                        .addComponent(lblCargarImagenes))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,6 +124,10 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
                         .addGap(207, 207, 207)
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblAgregarCiudad)
+                .addGap(60, 60, 60))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 860, Short.MAX_VALUE))
         );
@@ -146,9 +153,9 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(lblCargarImagenes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(lblAgregarCiudad)
-                .addGap(25, 25, 25))
+                .addGap(42, 42, 42))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(lblImagen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 522, Short.MAX_VALUE))
         );
@@ -195,6 +202,14 @@ public class pnlAgregarCiudad extends javax.swing.JPanel {
         padre.add(new pnlCiudades(modelo, padre));
         padre.pack();
     }//GEN-LAST:event_VolverMouseClicked
+
+    private void lblAgregarCiudadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarCiudadMouseEntered
+       lblAgregarCiudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregarONN.png")));
+    }//GEN-LAST:event_lblAgregarCiudadMouseEntered
+
+    private void lblAgregarCiudadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarCiudadMouseExited
+        lblAgregarCiudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregar.png")));
+    }//GEN-LAST:event_lblAgregarCiudadMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

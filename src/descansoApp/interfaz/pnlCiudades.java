@@ -29,19 +29,33 @@ public class pnlCiudades extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblAgregarCiudad = new javax.swing.JLabel();
         lblInicio = new javax.swing.JLabel();
         lblDondeDormir = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstCiudades = new javax.swing.JList<>();
         lblQueHacer = new javax.swing.JLabel();
-        lblAgregarCiudad = new javax.swing.JLabel();
         lblEliminarCiudad = new javax.swing.JLabel();
         lblDondeComer = new javax.swing.JLabel();
         Volver = new javax.swing.JLabel();
         lblImagen = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(840, 500));
+
+        lblAgregarCiudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregar.png"))); // NOI18N
+        lblAgregarCiudad.setText("Agregar ciudad");
+        lblAgregarCiudad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAgregarCiudadMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblAgregarCiudadMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblAgregarCiudadMouseExited(evt);
+            }
+        });
 
         lblInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnHome.png"))); // NOI18N
         lblInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -68,13 +82,6 @@ public class pnlCiudades extends javax.swing.JPanel {
         lblQueHacer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblQueHacerMouseClicked(evt);
-            }
-        });
-
-        lblAgregarCiudad.setText("Agregar ciudad");
-        lblAgregarCiudad.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblAgregarCiudadMouseClicked(evt);
             }
         });
 
@@ -117,7 +124,7 @@ public class pnlCiudades extends javax.swing.JPanel {
                 .addComponent(lblTitulo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblDondeComer)
@@ -127,43 +134,39 @@ public class pnlCiudades extends javax.swing.JPanel {
                         .addComponent(lblQueHacer)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblEliminarCiudad)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblAgregarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblAgregarCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 860, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblInicio)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblTitulo)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(3, 3, 3))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblQueHacer)
-                    .addComponent(lblDondeDormir)
-                    .addComponent(lblDondeComer)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(lblAgregarCiudad)
-                        .addComponent(lblEliminarCiudad)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblInicio)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblTitulo)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(3, 3, 3))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblQueHacer)
+                            .addComponent(lblDondeDormir)
+                            .addComponent(lblDondeComer))
+                        .addGap(2, 2, 2))
+                    .addComponent(lblAgregarCiudad)
+                    .addComponent(lblEliminarCiudad))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -230,6 +233,14 @@ public class pnlCiudades extends javax.swing.JPanel {
         padre.add(new pnlInicio(modelo, padre));
         padre.pack();
     }//GEN-LAST:event_VolverMouseClicked
+
+    private void lblAgregarCiudadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarCiudadMouseEntered
+        lblAgregarCiudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregarONN.png")));
+    }//GEN-LAST:event_lblAgregarCiudadMouseEntered
+
+    private void lblAgregarCiudadMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAgregarCiudadMouseExited
+        lblAgregarCiudad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnAgregar.png")));
+    }//GEN-LAST:event_lblAgregarCiudadMouseExited
     private void cargarLista (){
         ArrayList <Ciudad> ciudades = modelo.getListaCiudades();
         DefaultListModel listaCiudades = new DefaultListModel();

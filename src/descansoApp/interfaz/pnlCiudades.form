@@ -31,7 +31,7 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="lblDondeComer" min="-2" max="-2" attributes="0"/>
@@ -41,19 +41,15 @@
                       <Component id="lblQueHacer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblEliminarCiudad" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblAgregarCiudad" min="-2" pref="97" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblAgregarCiudad" min="-2" pref="124" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="748" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="lblImagen" min="-2" pref="840" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
+              <Component id="lblImagen" alignment="0" pref="860" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,41 +57,53 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblInicio" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="lblTitulo" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="Volver" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblInicio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="lblTitulo" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="Volver" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="354" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblQueHacer" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDondeDormir" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDondeComer" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="lblAgregarCiudad" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEliminarCiudad" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="354" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblQueHacer" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblDondeDormir" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblDondeComer" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="lblAgregarCiudad" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblEliminarCiudad" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="lblImagen" min="-2" pref="500" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
+              <Component id="lblImagen" alignment="0" pref="500" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblAgregarCiudad">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/descansoApp/imagenes/btnAgregar.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Agregar ciudad"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAgregarCiudadMouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAgregarCiudadMouseEntered"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAgregarCiudadMouseExited"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JLabel" name="lblInicio">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -156,14 +164,6 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblQueHacerMouseClicked"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblAgregarCiudad">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar ciudad"/>
-      </Properties>
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAgregarCiudadMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEliminarCiudad">

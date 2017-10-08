@@ -1,4 +1,4 @@
-package DescansoApp.dominio;
+package descansoApp.dominio;
 
 import descansoApp.dominio.ComercioActividad;
 import descansoApp.dominio.Ciudad;
@@ -187,7 +187,7 @@ public class CiudadTest {
         String expResult= "basedatos/fraybentos1.jpg";
         String aux = instance.getImagenes().get(0).getDescription();
         String [] result= aux.toLowerCase().split("/descansoapp/");
-        assertEquals(expResult, result[2]);
+        assertEquals(expResult, result[1]);
         
     }
     
@@ -202,7 +202,7 @@ public class CiudadTest {
         String expResult= "basedatos/fraybentos2.jpg";
         String aux = instance.getImagenes().get(0).getDescription();
         String [] result= aux.toLowerCase().split("/descansoapp/");
-        assertEquals(expResult, result[2]);
+        assertEquals(expResult, result[1]);
         
     }
 }
