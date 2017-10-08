@@ -91,7 +91,7 @@ public class pnlItinerario extends javax.swing.JPanel {
                 lblAgregarEventoMouseExited(evt);
             }
         });
-        add(lblAgregarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 130, 40));
+        add(lblAgregarEvento, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 130, 40));
 
         lblNoHay.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lblNoHay.setForeground(new java.awt.Color(255, 255, 255));
