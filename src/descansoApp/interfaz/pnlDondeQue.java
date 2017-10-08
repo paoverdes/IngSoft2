@@ -16,12 +16,13 @@ public class pnlDondeQue extends javax.swing.JPanel {
     private JFrame padre;
     ArrayList<ComercioActividad> lista;
     ArrayList<String> filtros;
+    private String palabraBusqueda;
 
-    public pnlDondeQue(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre, TipoCA unTipo) {
+    public pnlDondeQue(Sistema unModelo, descansoApp.dominio.Ciudad unaCiudad, JFrame unPadre, TipoCA unTipo, String palabra) {
         initComponents();
         pnlResultados.setOpaque(false);
         pnlResultados.setLayout(new BoxLayout(pnlResultados, BoxLayout.PAGE_AXIS));
-
+        palabraBusqueda = palabra;
         scroll.setOpaque(false);
         scroll.getViewport().setOpaque(false);
         scroll.setBorder(null);
@@ -144,7 +145,7 @@ public class pnlDondeQue extends javax.swing.JPanel {
         while (it.hasNext()) {
             ComercioActividad actual = it.next();
             if (filtros.get(lstFiltros.getSelectedIndex()).equals(actual.getCategoria())) {
-                pResultadoDondeQue p = new pResultadoDondeQue(modelo, actual, padre, this, ciudad);
+                pResultadoDondeQue p = new pResultadoDondeQue(modelo, actual, padre, this, ciudad, palabraBusqueda);
                 pnlResultados.add(p);
             }
         }
@@ -156,7 +157,7 @@ public class pnlDondeQue extends javax.swing.JPanel {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         padre.remove(this);
-        padre.add(new pnlInformacionCiudad(modelo, ciudad, padre));
+        padre.add(new pnlInformacionCiudad(modelo, ciudad, padre, palabraBusqueda));
         padre.pack();
     }//GEN-LAST:event_jLabel1MouseClicked
 
