@@ -15,7 +15,7 @@ public class pnlInicio extends javax.swing.JPanel {
         initComponents();
         modelo = unModelo;
         padre = miPadre;
-        lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViaje.png")));
+        lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnNuevoViaje.png")));
     }
 
     @SuppressWarnings("unchecked")
@@ -112,19 +112,19 @@ public class pnlInicio extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lblNuevoViajeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoViajeMouseEntered
-        lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViajeON.png")));
+        lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnNuevoViajeONN.png")));
     }//GEN-LAST:event_lblNuevoViajeMouseEntered
 
     private void lblNuevoViajeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoViajeMouseExited
-        lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnNuevoViaje.png")));
+        lblNuevoViaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnNuevoViaje.png")));
     }//GEN-LAST:event_lblNuevoViajeMouseExited
 
     private void lblMisViajesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMisViajesMouseEntered
-        lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajesON.png")));
+        lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnMisViajesONN.png")));
     }//GEN-LAST:event_lblMisViajesMouseEntered
 
     private void lblMisViajesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMisViajesMouseExited
-        lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnMisViajes.png")));
+        lblMisViajes.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnMisViajes.png")));
     }//GEN-LAST:event_lblMisViajesMouseExited
 
     private void lblNuevoViajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoViajeMouseClicked
@@ -160,11 +160,11 @@ public class pnlInicio extends javax.swing.JPanel {
     }//GEN-LAST:event_lblCiudadesMouseClicked
 
     private void lblCiudadesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCiudadesMouseEntered
-        lblCiudades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCiudadONN.png")));
+        lblCiudades.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnCiudadONN.png")));
     }//GEN-LAST:event_lblCiudadesMouseEntered
 
     private void lblCiudadesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCiudadesMouseExited
-        lblCiudades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/descansoApp/imagenes/btnCiudad.png")));
+        lblCiudades.setIcon(new javax.swing.ImageIcon(getClass().getResource("../imagenes/btnCiudad.png")));
     }//GEN-LAST:event_lblCiudadesMouseExited
 
     private void buscar() {
