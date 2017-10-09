@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import descansoApp.dominio.Sistema;
 import descansoApp.dominio.Viaje;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class pnlNuevoViaje extends javax.swing.JPanel {
 
@@ -122,23 +124,22 @@ public class pnlNuevoViaje extends javax.swing.JPanel {
             Viaje viaje=null;
 
             if (modViaje != null) {
-                viaje =modViaje;
+                viaje = modViaje;
                 for (int i = 0; i < modelo.getListaViajes().size(); i++) {
-                    Viaje viajeMomento= modelo.getListaViajes().get(i);
-                    if(txtNombre.getText().equals(viajeMomento.getNombre())){
-                        JOptionPane.showMessageDialog(null, "El nombre de ese viaje ya existe", "Error", JOptionPane.ERROR_MESSAGE);
-                         
-                        
-                   }
-                }    
-               
-            } 
-            
-            else{
-                
+                    if (viaje.getNombre().equals(modelo.getListaViajes().get(i).getNombre())) {
+                        try {
+                                modelo.getListaViajes().get(i).setNombre(txtNombre.getText());
+                                modelo.getListaViajes().get(i).setFechaF(dChooserFechaI.getCalendar(), dChooserFechaF.getCalendar());
+                        } catch (Exception ex) {
+                                Logger.getLogger(pnlNuevoViaje.class.getName()).log(Level.SEVERE, null, ex);
+                                JOptionPane.showMessageDialog(this, "Fechas incorrectas", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                } 
+            } else{                
                 viaje = new Viaje();
                 viaje.setNombre(txtNombre.getText());
-                Calendar c = dChooserFechaI.getCalendar();
+                Calendar c = dChooserFechaI.getCalendar();                
             }
             
             try {
@@ -149,7 +150,10 @@ public class pnlNuevoViaje extends javax.swing.JPanel {
                     modelo.agregarViaje(viaje);
                 }
 
-                miVentana.dispose();
+                //miVentana.dispose();
+                miVentana.remove(this);
+                miVentana.add(new pnlMisViajes(modelo, miVentana));
+                miVentana.pack();
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "El nombre de ese viaje ya existe", "Error", JOptionPane.ERROR_MESSAGE);
